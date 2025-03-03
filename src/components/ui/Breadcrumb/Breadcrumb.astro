@@ -1,0 +1,11 @@
+---
+export interface Props {
+  ariaLabel?: string;
+}
+
+const { ariaLabel = "breadcrumb" } = Astro.props;
+---
+
+<nav aria-label={ariaLabel}>
+  <slot />
+</nav>

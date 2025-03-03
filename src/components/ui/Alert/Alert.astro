@@ -1,0 +1,17 @@
+---
+export interface AlertProps {
+  variant?: "default" | "destructive";
+  class?: string;
+}
+
+const { variant, class: className } = Astro.props;
+---
+
+<div
+  class={`relative w-full rounded-lg border px-4 py-3 text-sm [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg~*]:pl-7 
+    ${variant === "destructive" ? "border-destructive/50 text-destructive dark:border-destructive dark:text-destructive [&>svg]:text-destructive dark:[&>svg]:text-destructive" : "bg-background text-foreground [&>svg]:text-foreground"} 
+    ${className}`}
+  role="alert"
+>
+  <slot />
+</div>

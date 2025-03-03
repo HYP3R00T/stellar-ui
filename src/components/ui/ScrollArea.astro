@@ -1,0 +1,16 @@
+---
+export interface ScrollAreaProps {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div class=`relative overflow-y-auto max-w-[inherit] ${className ?? ""}`>
+  <slot />
+</div>
+<!-- <div
+  class={`relative overflow-y-auto rounded-lg shadow-none border border-border max-w-[inherit] ${className ?? ""}`}
+>
+  <slot />
+</div> -->

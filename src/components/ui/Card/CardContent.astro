@@ -1,0 +1,12 @@
+---
+// CardContent.astro
+export interface CardContentProps {
+  className?: string;
+}
+
+const { className } = Astro.props;
+---
+
+<div class={`p-6 pt-0 ${className ?? ""}`}>
+  <slot />
+</div>

@@ -1,0 +1,12 @@
+---
+// CardDescription.astro
+export interface CardDescriptionProps {
+  className?: string;
+}
+
+const { className } = Astro.props;
+---
+
+<div class={`text-sm text-muted-foreground ${className ?? ""}`}>
+  <slot />
+</div>

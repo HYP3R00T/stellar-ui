@@ -1,0 +1,222 @@
+---
+import Button from "@/components/ui/Button.astro";
+
+export interface PaginationProps {
+  prevUrl?: string;
+  nextUrl?: string;
+  firstUrl?: string;
+  lastUrl?: string;
+  currentPage?: number;
+  totalPages?: number;
+}
+
+const { prevUrl, nextUrl, firstUrl, lastUrl, currentPage, totalPages } =
+  Astro.props;
+---
+
+<nav
+  role="navigation"
+  aria-label="Pagination"
+  class="flex justify-center items-center gap-2"
+>
+  <!-- First Page -->
+  {
+    firstUrl ? (
+      <a
+        href={firstUrl}
+        aria-label="First page"
+        class="no-underline! font-normal! text-muted-foreground! hover:text-foreground!"
+      >
+        <Button variant="outline" size="icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-chevrons-left"
+          >
+            <>
+              <path d="m11 17-5-5 5-5" />
+              <path d="m18 17-5-5 5-5" />
+            </>
+          </svg>
+        </Button>
+      </a>
+    ) : (
+      <Button variant="outline" size="icon" disabled>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-chevrons-left"
+        >
+          <>
+            <path d="m11 17-5-5 5-5" />
+            <path d="m18 17-5-5 5-5" />
+          </>
+        </svg>
+      </Button>
+    )
+  }
+
+  <!-- Previous Page -->
+  {
+    prevUrl ? (
+      <a
+        href={prevUrl}
+        aria-label="Previous page"
+        class="no-underline! font-normal! text-muted-foreground! hover:text-foreground!"
+      >
+        <Button variant="outline" size="icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-chevron-left"
+          >
+            <path d="m15 18-6-6 6-6" />
+          </svg>
+        </Button>
+      </a>
+    ) : (
+      <Button variant="outline" size="icon" disabled>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-chevron-left"
+        >
+          <path d="m15 18-6-6 6-6" />
+        </svg>
+      </Button>
+    )
+  }
+
+  <!-- Page Info -->
+  {
+    currentPage && totalPages && (
+      <span class="text-sm font-medium">
+        Page {currentPage} of {totalPages}
+      </span>
+    )
+  }
+
+  <!-- Next Page -->
+  {
+    nextUrl ? (
+      <a
+        href={nextUrl}
+        aria-label="Next page"
+        class="no-underline! font-normal! text-muted-foreground! hover:text-foreground!"
+      >
+        <Button variant="outline" size="icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-chevron-right"
+          >
+            <path d="m9 18 6-6-6-6" />
+          </svg>
+        </Button>
+      </a>
+    ) : (
+      <Button variant="outline" size="icon" disabled>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-chevron-right"
+        >
+          <path d="m9 18 6-6-6-6" />
+        </svg>
+      </Button>
+    )
+  }
+
+  <!-- Last Page -->
+  {
+    lastUrl ? (
+      <a
+        href={lastUrl}
+        aria-label="Last page"
+        class="no-underline! font-normal! text-muted-foreground! hover:text-foreground!"
+      >
+        <Button variant="outline" size="icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-chevrons-right"
+          >
+            <>
+              <path d="m6 17 5-5-5-5" />
+              <path d="m13 17 5-5-5-5" />
+            </>
+          </svg>
+        </Button>
+      </a>
+    ) : (
+      <Button variant="outline" size="icon" disabled>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-chevrons-right"
+        >
+          <>
+            <path d="m6 17 5-5-5-5" />
+            <path d="m13 17 5-5-5-5" />
+          </>
+        </svg>
+      </Button>
+    )
+  }
+</nav>

@@ -1,0 +1,36 @@
+---
+export interface InputProps {
+  type?: string;
+  class?: string;
+  placeholder?: string;
+  value?: string;
+  disabled?: boolean;
+  name?: string;
+  id?: string;
+  required?: boolean;
+}
+
+const {
+  type = "text",
+  class: className = "",
+  placeholder = "",
+  value = "",
+  disabled = false,
+  name = "",
+  id = "",
+  required = false,
+} = Astro.props;
+
+const uniqueId = id || `input-${Math.random().toString(36).slice(2, 9)}`;
+---
+
+<input
+  type={type}
+  class={`flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm ${className}`}
+  placeholder={placeholder}
+  value={value}
+  disabled={disabled}
+  name={name}
+  id={uniqueId}
+  required={required}
+/>

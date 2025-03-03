@@ -1,0 +1,33 @@
+---
+export interface CheckboxProps {
+  id: string;
+  checked?: boolean;
+  disabled?: boolean;
+  label?: string;
+}
+
+const { id, checked = false, disabled = false, label } = Astro.props;
+---
+
+<label for={id} class="flex items-center cursor-pointer gap-2">
+  <input
+    type="checkbox"
+    id={id}
+    checked={checked}
+    disabled={disabled}
+    class="hidden peer"
+  />
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="border rounded-sm border-gray-500 w-4 h-4 text-background peer-checked:bg-foreground peer-checked:border-foreground peer-checked:text-background"
+  >
+    <path d="M20 6 9 17l-5-5"></path>
+  </svg>
+  {label && <span class="text-gray-700">{label}</span>}
+</label>

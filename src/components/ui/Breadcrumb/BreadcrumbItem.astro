@@ -1,0 +1,11 @@
+---
+export interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+---
+
+<li class={`inline-flex items-center gap-1.5 ${className}`}>
+  <slot />
+</li>

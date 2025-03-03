@@ -1,0 +1,17 @@
+---
+export interface AccordionContentProps {
+  id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<div
+  id={`accordion-content-${id}`}
+  class="overflow-hidden text-sm transition-[max-height] duration-300 ease-in-out"
+  style="max-height: 0px;"
+>
+  <div class="pb-4 pt-0">
+    <slot />
+  </div>
+</div>

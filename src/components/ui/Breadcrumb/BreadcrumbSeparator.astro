@@ -1,0 +1,29 @@
+---
+export interface Props {
+  class?: string;
+  icon?: string; // Accepts custom SVG as a string
+}
+
+const { class: className = "", icon } = Astro.props;
+---
+
+<li
+  role="presentation"
+  aria-hidden="true"
+  class={`w-4 h-4 flex items-center justify-center ${className}`}
+>
+  {
+    icon ? (
+      <Fragment set:html={icon} />
+    ) : (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        class="w-3.5 h-3.5"
+      >
+        <path d="M9 18l6-6-6-6" />
+      </svg>
+    )
+  }
+</li>

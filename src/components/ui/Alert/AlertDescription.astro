@@ -1,0 +1,11 @@
+---
+export interface AlertDescriptionProps {
+  class?: string;
+}
+
+const { class: className } = Astro.props as AlertDescriptionProps;
+---
+
+<div class={`text-sm [&_p]:leading-relaxed ${className}`}>
+  <slot />
+</div>

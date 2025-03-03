@@ -1,0 +1,21 @@
+---
+/* Wraps a single menu item.
+   Use named slots for the trigger and content to ensure proper structure.
+*/
+export interface Props {
+  id: string;
+}
+const { id } = Astro.props;
+---
+
+<div class="relative">
+  <div class="flex flex-col">
+    <div class="mb-0" id={`trigger-${id}`}>
+      <!-- Pass the id to the trigger so the script can target the corresponding content -->
+      <slot name="trigger" />
+    </div>
+    <div class="mt-0" id={`content-${id}`}>
+      <slot name="content" />
+    </div>
+  </div>
+</div>
