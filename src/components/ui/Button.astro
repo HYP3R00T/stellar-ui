@@ -1,5 +1,7 @@
 ---
-interface ButtonProps {
+import type { HTMLAttributes } from "astro/types";
+
+interface ButtonProps extends HTMLAttributes<"button"> {
   variant?:
     | "default"
     | "destructive"
@@ -10,6 +12,7 @@ interface ButtonProps {
   size?: "default" | "sm" | "lg" | "icon";
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
+  class?: string;
 }
 
 const {
@@ -17,30 +20,39 @@ const {
   size = "default",
   type = "button",
   disabled = false,
+  class: className,
+  ...rest
 } = Astro.props as ButtonProps;
-
-const buttonClasses = {
-  default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
-  destructive:
-    "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
-  outline:
-    "border border-border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
-  secondary:
-    "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
-  ghost: "hover:bg-accent hover:text-accent-foreground",
-  link: "text-primary underline-offset-4 hover:underline",
-}[variant];
-
-const sizeClasses = {
-  default: "h-9 px-4 py-2",
-  sm: "h-8 rounded-md px-3 text-xs",
-  lg: "h-10 rounded-md px-8",
-  icon: "h-9 w-9",
-}[size];
-
-const classes = `inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors  cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 ${buttonClasses} ${sizeClasses}`;
 ---
 
-<button class={classes} type={type} disabled={disabled}>
+<button
+  class={`inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-radius text-sm font-medium transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 
+  ${
+    {
+      default:
+        "bg-accent-primary text-background-base shadow hover:bg-accent-primary/70",
+      destructive: "bg-danger shadow-sm hover:bg-danger/90",
+      outline:
+        "border border-text-primary/10 shadow-sm hover:bg-background-elevated/50",
+      secondary:
+        "bg-background-elevated/30 text-text-secondary shadow hover:bg-background-elevated/50",
+      ghost: "hover:bg-background-elevated/50",
+      link: "text-primary underline-offset-4 hover:underline",
+    }[variant]
+  }
+  ${
+    {
+      default: "h-9 px-4 py-2",
+      sm: "h-8 px-3 text-xs",
+      lg: "h-10 px-8",
+      icon: "h-9 w-9",
+    }[size]
+  }
+  ${className}
+  `}
+  type={type}
+  disabled={disabled}
+  {...rest}
+>
   <slot />
 </button>
