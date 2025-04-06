@@ -1,12 +1,11 @@
 ---
-import { buildMenu, capitalizeFirstLetter } from "@/lib/utils";
-import type { SideNavMenuProps } from "@/lib/types";
-import Link from "../ui/Link.astro";
-import { menuConfig } from "config";
 import { getCollection } from "astro:content";
 import { Icon } from "astro-icon/components";
 
-const { items, level } = Astro.props as SideNavMenuProps;
+import Link from "@/components/ui/Link.astro";
+import { buildMenu } from "@/lib/utils";
+import { menuConfig } from "config";
+
 const pathname: string = new URL(Astro.request.url).pathname;
 const docs = await getCollection("docs");
 
