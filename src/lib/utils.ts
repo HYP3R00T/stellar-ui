@@ -1,16 +1,7 @@
 import type {
-    DocsEntry,
     HeadingHierarchy,
     MDHeading,
-    MenuItem,
-    MenuItemWithDraft,
 } from "@/lib/types";
-
-import { side_nav_menu_order } from "config";
-import { getCollection } from "astro:content";
-
-// Fetch the collection with type
-const docs: DocsEntry[] = await getCollection("docs");
 
 // Helper function to capitalize the first letter of a string
 export const capitalizeFirstLetter = (str: string) => {
@@ -41,106 +32,51 @@ export function createHeadingHierarchy(headings: MDHeading[]) {
     return topLevelHeadings;
 }
 
-// Helper function to sort items according to side_nav_menu_order
-function sortItems(
-    items: MenuItemWithDraft[],
-    orderMap: Map<string, number>,
-): MenuItemWithDraft[] {
-    return items.slice().sort((a, b) => {
-        const aIndex = orderMap.get(a.id) ?? Infinity;
-        const bIndex = orderMap.get(b.id) ?? Infinity;
-        return aIndex - bIndex;
-    });
-}
 
-// Function to build nested menu structure
-function buildMenu(items: DocsEntry[]): MenuItem[] {
-    const menu: MenuItemWithDraft[] = [];
+type DocsEntry = {
+    id: string; // e.g., "components/button"
+    data: {
+        title: string;
+        draft?: boolean;
+    };
+};
 
-    // Create a map to quickly look up the order of all items
-    const orderMap = new Map(
-        side_nav_menu_order.map((item: any, index: any) => [item, index]),
-    );
+type MenuLink = {
+    title: string;
+    href: string;
+};
 
-    // Helper function to sort top-level items
-    function sortTopLevel(items: MenuItemWithDraft[]): MenuItemWithDraft[] {
-        const topLevelItems = items.filter((item) => !item.id.includes("/"));
-        const nestedItems = items.filter((item) => item.id.includes("/"));
+type MenuSection = {
+    title: string;
+    items: MenuLink[];
+};
 
-        // Sort top-level items
-        const sortedTopLevelItems = sortItems(topLevelItems, orderMap);
+export function buildMenu(items: DocsEntry[], menuConfig: Record<string, { items: string[] }>): MenuSection[] {
+    const idToEntry = new Map(items.map(item => [`/${item.id.toLowerCase()}`, item]));
 
-        // Sort nested items by their respective parent folders
-        const nestedMenu: MenuItemWithDraft[] = [];
-        nestedItems.forEach((item) => {
-            const parts = item.id.split("/");
-            let currentLevel = nestedMenu;
+    const menu: MenuSection[] = [];
 
-            // Traverse and insert items into the correct position
-            parts.forEach((part: string, index: number) => {
-                let existingItem = currentLevel.find(
-                    (i) => i.id === parts.slice(0, index + 1).join("/"),
-                );
+    for (const [sectionTitle, sectionConfig] of Object.entries(menuConfig)) {
+        const sectionItems: MenuLink[] = [];
 
-                if (!existingItem) {
-                    existingItem = {
-                        title: capitalizeFirstLetter(part),
-                        id: parts.slice(0, index + 1).join("/"),
-                        draft: item.draft,
-                        children: [],
-                    };
-                    currentLevel.push(existingItem);
-                }
-                currentLevel = existingItem.children;
+        for (const path of sectionConfig.items) {
+            const entry = idToEntry.get(path.toLowerCase());
+
+            // fallback to path-based title if entry is missing
+            const title = entry?.data.title || path.split("/").pop()?.replace(/-/g, " ") || path;
+            const href = path;
+
+            sectionItems.push({
+                title: capitalizeFirstLetter(title),
+                href
             });
-        });
+        }
 
-        // For each top-level item, attach sorted nested items
-        sortedTopLevelItems.forEach((item) => {
-            if (item.children) {
-                item.children = sortItems(item.children, orderMap);
-            }
+        menu.push({
+            title: sectionTitle,
+            items: sectionItems
         });
-
-        return sortedTopLevelItems;
     }
 
-    items.forEach((item) => {
-        const parts = item.id.split("/"); // Split id into parts
-        let currentLevel = menu;
-
-        // Traverse the menu structure based on folder depth
-        parts.forEach((part: string, index: number) => {
-            let existingItem = currentLevel.find(
-                (i) => i.id === parts.slice(0, index + 1).join("/"),
-            );
-
-            if (!existingItem) {
-                existingItem = {
-                    title:
-                        index === parts.length - 1
-                            ? capitalizeFirstLetter(item.data.title || "")
-                            : capitalizeFirstLetter(part),
-                    id: parts.slice(0, index + 1).join("/"),
-                    draft: item.data.draft,
-                    children: [],
-                };
-                currentLevel.push(existingItem);
-            } else {
-                // Update title if necessary
-                if (index === parts.length - 1) {
-                    existingItem.title = capitalizeFirstLetter(item.data.title || "");
-                }
-            }
-
-            currentLevel = existingItem.children;
-        });
-    });
-
-    // Sort top-level items based on menu_order and attach nested items
-    const topLevelMenu = sortTopLevel(menu);
-
-    return topLevelMenu;
+    return menu;
 }
-
-export const menu = buildMenu(docs);

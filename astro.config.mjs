@@ -22,4 +22,7 @@ export default defineConfig({
     }),
     mdx(),
   ],
+  redirects: {
+    "/test": "/test/checkbox",
+  },
 });

@@ -1,60 +1,47 @@
 ---
-import { capitalizeFirstLetter } from "@/lib/utils";
+import { buildMenu, capitalizeFirstLetter } from "@/lib/utils";
 import type { SideNavMenuProps } from "@/lib/types";
 import Link from "../ui/Link.astro";
+import { menuConfig } from "config";
+import { getCollection } from "astro:content";
 
 const { items, level } = Astro.props as SideNavMenuProps;
 const pathname: string = new URL(Astro.request.url).pathname;
+const docs = await getCollection("docs");
 
-// To pass the tailwindcss classes to the astro component
+const menu = buildMenu(docs, menuConfig);
+
 const { class: className } = Astro.props;
 ---
 
-<ul class:list={["list-none! m-0", className]}>
-  {
-    items
-      .filter((item) => !item.draft)
-      .map((item) => {
-        const label = item.title
-          ? capitalizeFirstLetter(item.title)
-          : capitalizeFirstLetter(item.id.split("/").pop() || "");
-        const classNameLink = `
-        ${level === 0 ? "font-semibold!" : "text-text-muted! bg-background-elevated/30!"}
-        ${pathname === "/" + item.id ? "text-text-primary! bg-background-elevated/30!" : "no-underline!"}
+<div
+  class={`flex flex-col gap-1 m-0 w-full h-full border-r-[1px] border-border ${className}`}
+>
+  <div class="p-4 border-b-[1px] border-border">
+    <h2 class="">Fixed Box</h2>
+    <Link href="/">Home</Link>
+    <Link href="/button">Components</Link>
+  </div>
+
+  <div class="flex flex-col gap-4 overflow-y-scroll p-4">
+    {
+      menu.map((section) => (
+        <div class="flex flex-col gap-2">
+          <p class="">{section.title}</p>
+          <div>
+            {section.items.map((item) => {
+              const classNameLink = `
+        ${pathname === item.href ? "text-text-primary! bg-background-elevated/30!" : "no-underline!"}
         `.trim();
-        return (
-          <Link href={`/components/${item.id}`} class={classNameLink}>
-            {label}
-          </Link>
-        );
-      })
-  }
-</ul>
-<!-- <ul class:list={["list-none! m-0", className]}>
-  {
-    items
-      .filter((item) => !item.draft)
-      .map((item) => {
-        const label = item.title
-          ? capitalizeFirstLetter(item.title)
-          : capitalizeFirstLetter(item.id.split("/").pop() || "");
-        const className = `
-        ${level === 0 ? "font-semibold!" : "text-muted-foreground!"}
-        ${pathname === "/" + item.id ? "text-primary!" : "no-underline!"}
-        `.trim();
-        return (
-          <li class="w-full">
-            <a
-              href={`/${item.id}`}
-              class={`${className}  text-sm leading-none w-full no-underline!`}
-            >
-              {label}
-            </a>
-            {item.children.length > 0 && (
-              <Astro.self items={item.children} level={level + 1} />
-            )}
-          </li>
-        );
-      })
-  }
-</ul> -->
+              return (
+                <Link href={item.href} class={classNameLink}>
+                  {item.title}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
