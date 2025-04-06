@@ -43,11 +43,13 @@ export const docconfig = {
 
 export const menuConfig = {
     "Get Started": {
+        "icon": "discord",
         "items": [
             "/get-started"
         ]
     },
     "Components": {
+        "icon": "github",
         "items": [
             "/components/aspectratio",
             "/components/badge",

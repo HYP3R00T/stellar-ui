@@ -48,10 +48,11 @@ type MenuLink = {
 
 type MenuSection = {
     title: string;
+    icon?: string | null;
     items: MenuLink[];
 };
 
-export function buildMenu(items: DocsEntry[], menuConfig: Record<string, { items: string[] }>): MenuSection[] {
+export function buildMenu(items: DocsEntry[], menuConfig: Record<string, { icon: string; items: string[] }>): MenuSection[] {
     const idToEntry = new Map(items.map(item => [`/${item.id.toLowerCase()}`, item]));
 
     const menu: MenuSection[] = [];
@@ -74,6 +75,7 @@ export function buildMenu(items: DocsEntry[], menuConfig: Record<string, { items
 
         menu.push({
             title: sectionTitle,
+            icon: sectionConfig.icon ?? null,
             items: sectionItems
         });
     }
