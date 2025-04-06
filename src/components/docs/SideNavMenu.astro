@@ -1,15 +1,24 @@
 ---
 import { getCollection } from "astro:content";
 import { Icon } from "astro-icon/components";
-
 import Link from "@/components/ui/Link.astro";
+
 import { buildMenu } from "@/lib/utils";
-import { menuConfig } from "config";
+import { menuConfig } from "config"; // your top-level menuConfig
 
 const pathname: string = new URL(Astro.request.url).pathname;
+
+// Extract the first URL segment.
+const firstSegment = pathname.split("/")[1];
+
+// Check if the first segment exists in menuConfig; if not, default to "home".
+const topLevelSection = menuConfig[firstSegment] ? firstSegment : "home";
+
 const docs = await getCollection("docs");
 
-const menu = buildMenu(docs, menuConfig);
+// Get the config for the current section (like "home", "guides", etc.)
+const sectionMenuConfig = menuConfig[topLevelSection];
+const menu = sectionMenuConfig ? buildMenu(docs, sectionMenuConfig) : [];
 
 const { class: className } = Astro.props;
 ---
@@ -17,29 +26,71 @@ const { class: className } = Astro.props;
 <div
   class={`flex flex-col gap-1 m-0 w-full h-full border-r-[1px] border-border ${className}`}
 >
-  <div class="p-4 border-b-[1px] border-border">
-    <h2 class="">Fixed Box</h2>
-    <Link href="/">Home</Link>
-    <Link href="/button">Components</Link>
+  <div class="p-4 flex flex-col gap-1 border-b-[1px] border-border">
+    <Link
+      href="/"
+      class={topLevelSection === "home"
+        ? "font-bold text-text-primary bg-background-surface/30"
+        : ""}
+    >
+      Home
+    </Link>
+    <Link
+      href="/guides"
+      class={topLevelSection === "guides"
+        ? "font-bold text-text-primary bg-background-surface/30"
+        : ""}
+    >
+      Guides
+    </Link>
+    <Link
+      href="/eas"
+      class={topLevelSection === "eas"
+        ? "font-bold text-text-primary bg-background-surface/30"
+        : ""}
+    >
+      EAS
+    </Link>
+    <Link
+      href="/reference"
+      class={topLevelSection === "reference"
+        ? "font-bold text-text-primary bg-background-surface/30"
+        : ""}
+    >
+      Reference
+    </Link>
+    <Link
+      href="/learn"
+      class={topLevelSection === "learn"
+        ? "font-bold text-text-primary bg-background-surface/30"
+        : ""}
+    >
+      Learn
+    </Link>
   </div>
 
+  <!-- Side navigation menu based on the current top-level section -->
   <div class="flex flex-col gap-4 overflow-y-scroll p-4">
     {
       menu.map((section) => (
         <div class="flex flex-col gap-2">
-          <div class="flex flex-row gap-2 items-center ">
+          <div class="flex flex-row gap-2 items-center">
             {section.icon && <Icon name={section.icon} />}
             <p class="text-text-primary font-medium mt-0!">{section.title}</p>
           </div>
-          <div>
+          <div class="flex flex-col gap-2">
             {section.items.map((item) => {
-              const classNameLink = `
-        ${pathname === item.href ? "text-text-primary! bg-background-elevated/30!" : "no-underline!"}
-        `.trim();
+              const isActive = pathname === item.href;
+              const classNameLink = isActive
+                ? "text-accent-primary!"
+                : "text-text-secondary! hover:text-accent-primary";
               return (
-                <Link href={item.href} class={classNameLink}>
+                <a href={item.href} class={`text-sm ${classNameLink}`}>
                   {item.title}
-                </Link>
+                </a>
+                // <Link href={item.href} class={classNameLink} key={item.href}>
+                //   {item.title}
+                // </Link>
               );
             })}
           </div>

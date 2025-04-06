@@ -29,22 +29,47 @@ export const docconfig = {
     hide_author: true,
 };
 
-export const menuConfig = {
-    "Get Started": {
-        "icon": "discord",
-        "items": [
-            "/get-started"
-        ]
-    },
-    "Components": {
-        "icon": "github",
-        "items": [
-            "/components/aspectratio",
-            "/components/badge",
-            "/components/button",
-            "/components/checkbox",
-            "/components/input",
-        ]
-    },
-}
+export type MenuSectionConfig = {
+    icon?: string;
+    items: string[];
+};
 
+export type GlobalMenuConfig = {
+    [sectionName: string]: {
+        [subsection: string]: MenuSectionConfig;
+    };
+};
+
+export const menuConfig: GlobalMenuConfig = {
+    home: {
+        "Get Started": {
+            icon: "discord",
+            items: ["/get-started"],
+        },
+        "Components": {
+            icon: "github",
+            items: [
+                "/components/aspectratio",
+                "/components/badge",
+                "/components/button",
+                "/components/checkbox",
+                "/components/input",
+            ],
+        },
+    },
+    guides: {
+        "Overview": {
+            icon: "book",
+            items: ["/guides/overview"],
+        },
+        "Development process": {
+            icon: "box",
+            items: [
+                "/guides/develop-an-app",
+                "/guides/configure-app-config",
+                "/guides/environment-variables",
+            ],
+        },
+    },
+    // EAS, Reference, Learn, etc.
+};

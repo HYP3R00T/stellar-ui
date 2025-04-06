@@ -52,33 +52,41 @@ type MenuSection = {
     items: MenuLink[];
 };
 
-export function buildMenu(items: DocsEntry[], menuConfig: Record<string, { icon: string; items: string[] }>): MenuSection[] {
-    const idToEntry = new Map(items.map(item => [`/${item.id.toLowerCase()}`, item]));
+export function buildMenu(
+    docs: DocsEntry[],
+    sectionConfig: Record<string, { icon?: string; items: string[] }>
+): MenuSection[] {
+    // Create a map for fast lookup based on lower-case id (prefixed with a slash)
+    const idToEntry = new Map(
+        docs.map((entry) => [`/${entry.id.toLowerCase()}`, entry])
+    );
 
     const menu: MenuSection[] = [];
 
-    for (const [sectionTitle, sectionConfig] of Object.entries(menuConfig)) {
+    for (const [sectionTitle, { icon, items }] of Object.entries(sectionConfig)) {
         const sectionItems: MenuLink[] = [];
 
-        for (const path of sectionConfig.items) {
+        for (const path of items) {
             const entry = idToEntry.get(path.toLowerCase());
-
-            // fallback to path-based title if entry is missing
-            const title = entry?.data.title || path.split("/").pop()?.replace(/-/g, " ") || path;
-            const href = path;
+            // Use entry title if available, otherwise derive it from the path.
+            const title =
+                entry?.data.title ||
+                path.split("/").pop()?.replace(/-/g, " ") ||
+                path;
 
             sectionItems.push({
                 title: capitalizeFirstLetter(title),
-                href
+                href: path,
             });
         }
 
         menu.push({
             title: sectionTitle,
-            icon: sectionConfig.icon ?? null,
-            items: sectionItems
+            icon: icon ?? null,
+            items: sectionItems,
         });
     }
 
     return menu;
 }
+

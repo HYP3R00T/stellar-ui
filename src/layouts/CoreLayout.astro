@@ -48,14 +48,11 @@ const {
       <Copy />
       <Header />
       <div class="flex h-[calc(100dvh-1px-3.5rem)] w-full">
-        <!-- Column 1 -->
-        <div class="w-1/5 h-full overflow-y-scroll">
+        <div class="w-1/5 max-w-72 h-full overflow-y-scroll">
           <SideNavMenu />
-          <!-- <SideNavMenu items={menu} level={0} /> -->
         </div>
 
-        <!-- Column 2 -->
-        <div class="w-3/5 h-full overflow-y-scroll">
+        <div class="h-full w-full overflow-y-scroll flex justify-center">
           <MainContent
             title={title}
             author={author}
@@ -71,49 +68,10 @@ const {
           </MainContent>
         </div>
 
-        <!-- Column 3 -->
-        <div class="w-1/5 h-full overflow-y-scroll">
+        <div class="w-1/5 max-w-72 h-full overflow-y-scroll">
           <TableofContent {headings} />
         </div>
       </div>
     </main>
   </body>
 </html>
-
-<!-- <div
-  class="flex flex-row flex-1 w-full sticky top-[calc(1px+3.5rem)] h-[calc(100dvh-1px-3.5rem)]"
->
-  <div
-    class={`hidden md:flex w-full ${hide_toc && hide_sidenav ? "w-screen" : "md:w-1/4 lg:w-1/5"}`}
-  >
-    <SideNavMenu items={menu} level={0} />
-  </div>
-  <div
-    class=`flex flex-col w-full ${hide_toc && hide_sidenav ? "" : "md:w-3/4 lg:w-3/5"}`
-  >
-    <MainContent
-      title={title}
-      author={author}
-      pubDatetime={pubDatetime}
-      modDatetime={modDatetime}
-      description={description}
-      draft={draft}
-      tags={tags}
-      hide_breadcrumbs={hide_breadcrumbs}
-      headings={headings}
-    >
-      <slot />
-    </MainContent>
-  </div>
-  <div
-    class={`py-4 hidden lg:flex max-h-screen sticky ${hide_toc && hide_sidenav ? "" : "px-6 lg:w-1/5"}`}
-  >
-    <ScrollArea class="">
-      {
-        !docconfig.hide_table_of_contents && !hide_toc && (
-          <TableofContent {headings} />
-        )
-      }
-    </ScrollArea>
-  </div>
-</div> -->
