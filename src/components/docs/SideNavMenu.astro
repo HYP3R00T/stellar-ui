@@ -29,48 +29,58 @@ const { class: className } = Astro.props;
   <div class="p-4 flex flex-col gap-1 border-b-[1px] border-border">
     <Link
       href="/"
-      class={topLevelSection === "home"
-        ? "font-bold text-text-primary bg-background-surface/30"
-        : ""}
+      class={`h-8! ${
+        topLevelSection === "home"
+          ? "font-bold text-background-base! bg-accent-primary"
+          : ""
+      }`}
     >
       Home
     </Link>
     <Link
       href="/guides"
-      class={topLevelSection === "guides"
-        ? "font-bold text-text-primary bg-background-surface/30"
-        : ""}
+      class={`h-8! ${
+        topLevelSection === "guides"
+          ? "font-bold text-background-base! bg-accent-primary"
+          : ""
+      }`}
     >
       Guides
     </Link>
     <Link
       href="/eas"
-      class={topLevelSection === "eas"
-        ? "font-bold text-text-primary bg-background-surface/30"
-        : ""}
+      class={`h-8! ${
+        topLevelSection === "eas"
+          ? "font-bold text-background-base! bg-accent-primary"
+          : ""
+      }`}
     >
       EAS
     </Link>
     <Link
       href="/reference"
-      class={topLevelSection === "reference"
-        ? "font-bold text-text-primary bg-background-surface/30"
-        : ""}
+      class={`h-8! ${
+        topLevelSection === "reference"
+          ? "font-bold text-background-base! bg-accent-primary"
+          : ""
+      }`}
     >
       Reference
     </Link>
     <Link
       href="/learn"
-      class={topLevelSection === "learn"
-        ? "font-bold text-text-primary bg-background-surface/30"
-        : ""}
+      class={`h-8! ${
+        topLevelSection === "learn"
+          ? "font-bold text-background-base! bg-accent-primary"
+          : ""
+      }`}
     >
       Learn
     </Link>
   </div>
 
   <!-- Side navigation menu based on the current top-level section -->
-  <div class="flex flex-col gap-4 overflow-y-scroll p-4">
+  <div class="flex flex-col gap-4 overflow-y-scroll py-4 pl-4 pr-[12px]">
     {
       menu.map((section) => (
         <div class="flex flex-col gap-2">
@@ -78,19 +88,23 @@ const { class: className } = Astro.props;
             {section.icon && <Icon name={section.icon} />}
             <p class="text-text-primary font-medium mt-0!">{section.title}</p>
           </div>
-          <div class="flex flex-col gap-2">
+          <div class="flex flex-col gap-1">
             {section.items.map((item) => {
               const isActive = pathname === item.href;
               const classNameLink = isActive
-                ? "text-accent-primary!"
-                : "text-text-secondary! hover:text-accent-primary";
+                ? "text-text-primary! bg-background-surface/30!"
+                : "text-text-secondary! hover:text-accent-primary!";
               return (
-                <a href={item.href} class={`text-sm ${classNameLink}`}>
-                  {item.title}
-                </a>
-                // <Link href={item.href} class={classNameLink} key={item.href}>
+                // <a href={item.href} class={`text-sm ${classNameLink}`}>
                 //   {item.title}
-                // </Link>
+                // </a>
+                <Link
+                  href={item.href}
+                  class={`h-6! ${classNameLink}`}
+                  key={item.href}
+                >
+                  {item.title}
+                </Link>
               );
             })}
           </div>
