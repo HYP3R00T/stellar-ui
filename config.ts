@@ -54,6 +54,7 @@ export const menuConfig: GlobalMenuConfig = {
                 "/components/button",
                 "/components/checkbox",
                 "/components/input",
+                "/components/pagination",
             ],
         },
     },

@@ -1,0 +1,30 @@
+---
+title: Pagination
+hide_breadcrumbs: true
+---
+
+import Pagination from "@/components/ui/Pagination.astro";
+
+```astro
+---
+import Pagination from "@/components/ui/Pagination.astro";
+---
+
+<Pagination
+prevUrl="/page/2"
+nextUrl="/page/4"
+firstUrl="/page/1"
+lastUrl="/page/10"
+currentPage={3}
+totalPages={10}
+/>
+```
+
+<Pagination
+prevUrl="/page/2"
+nextUrl="/page/4"
+firstUrl="/page/1"
+lastUrl="/page/10"
+currentPage={3}
+totalPages={10}
+/>
