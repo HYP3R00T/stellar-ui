@@ -1,0 +1,17 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+export interface LinkProps extends HTMLAttributes<"a"> {
+  href: string;
+  class?: string;
+}
+const { href, class: className, ...rest } = Astro.props as LinkProps;
+---
+
+<a
+  class={`flex flex-col h-9 max-w-64 px-4 py-2 text-sm font-medium! rounded-radius transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-text-secondary hover:text-text-primary hover:bg-background-surface/50  ${className}`}
+  href={href}
+  {...rest}
+>
+  <slot />
+</a>

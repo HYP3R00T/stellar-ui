@@ -1,12 +1,13 @@
 ---
 import HeadSEO from "@/components/core/HeadSEO.astro";
-import ThemeSelector from "@/components/ux/ThemeSelector.astro";
 
 import { LOCALE, SITE } from "config";
 
 import type { BaseLayoutProps } from "@/lib/types";
 import { capitalizeFirstLetter } from "@/lib/utils";
 import Header from "@/components/core/Header.astro";
+import BlobBackground from "@/components/core/BlobBackground.astro";
+import Copy from "@/components/core/Copy.astro";
 
 const { title, description, image, imageAlt, contentType } =
   Astro.props as BaseLayoutProps;
@@ -24,13 +25,14 @@ const { title, description, image, imageAlt, contentType } =
   </head>
 
   <body>
-    <main class="flex justify-center">
-      <div class="z-30 fixed bottom-0 right-0">
-        <ThemeSelector />
-      </div>
-      <div class="flex flex-col">
+    <BlobBackground />
+    <main class="flex flex-col items-center">
+      <div class="max-w-7xl w-full">
+        <Copy />
         <Header />
-        <slot />
+        <div class="flex flex-col w-full min-h-screen items-center">
+          <slot />
+        </div>
       </div>
     </main>
   </body>

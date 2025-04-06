@@ -64,3 +64,10 @@ if (typeof image === "string" && image.startsWith("../../assets/")) {
 <meta name="twitter:creator" content={SITE.twitterHandle} />
 
 <ClientRouter />
+
+<script>
+  (function () {
+    const theme = localStorage.getItem("site-theme") || "dark";
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+</script>

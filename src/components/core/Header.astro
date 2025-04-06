@@ -4,11 +4,13 @@ import NavigationMenuLink from "@/components/ui/NavigationMenu/NavigationMenuLin
 import NavigationMenuList from "@/components/ui/NavigationMenu/NavigationMenuList.astro";
 ---
 
-<div class="py-3 bg-background">
+<div class="py-3 rounded-radius my-4" transition:persist>
   <NavigationMenu>
     <NavigationMenuList>
       <NavigationMenuLink href="/">Home</NavigationMenuLink>
-      <NavigationMenuLink href="/sample">Components</NavigationMenuLink>
+      <NavigationMenuLink href="/components/button"
+        >Components</NavigationMenuLink
+      >
     </NavigationMenuList>
   </NavigationMenu>
 </div>

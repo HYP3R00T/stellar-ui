@@ -1,6 +1,7 @@
 ---
 import { capitalizeFirstLetter } from "@/lib/utils";
 import type { SideNavMenuProps } from "@/lib/types";
+import Link from "../ui/Link.astro";
 
 const { items, level } = Astro.props as SideNavMenuProps;
 const pathname: string = new URL(Astro.request.url).pathname;
@@ -10,6 +11,26 @@ const { class: className } = Astro.props;
 ---
 
 <ul class:list={["list-none! m-0", className]}>
+  {
+    items
+      .filter((item) => !item.draft)
+      .map((item) => {
+        const label = item.title
+          ? capitalizeFirstLetter(item.title)
+          : capitalizeFirstLetter(item.id.split("/").pop() || "");
+        const classNameLink = `
+        ${level === 0 ? "font-semibold!" : "text-text-muted! bg-background-elevated/30!"}
+        ${pathname === "/" + item.id ? "text-text-primary! bg-background-elevated/30!" : "no-underline!"}
+        `.trim();
+        return (
+          <Link href={`/components/${item.id}`} class={classNameLink}>
+            {label}
+          </Link>
+        );
+      })
+  }
+</ul>
+<!-- <ul class:list={["list-none! m-0", className]}>
   {
     items
       .filter((item) => !item.draft)
@@ -36,4 +57,4 @@ const { class: className } = Astro.props;
         );
       })
   }
-</ul>
+</ul> -->

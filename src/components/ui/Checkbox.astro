@@ -1,33 +1,51 @@
 ---
-export interface CheckboxProps {
+import type { HTMLAttributes } from "astro/types";
+
+export interface CheckboxProps extends HTMLAttributes<"input"> {
   id: string;
   checked?: boolean;
   disabled?: boolean;
   label?: string;
+  class?: string;
 }
 
-const { id, checked = false, disabled = false, label } = Astro.props;
+const {
+  id,
+  checked = false,
+  disabled = false,
+  label,
+  class: className,
+  ...rest
+} = Astro.props;
 ---
 
-<label for={id} class="flex items-center cursor-pointer gap-2">
+<label for={id} class="flex items-center gap-2 peer">
   <input
     type="checkbox"
     id={id}
     checked={checked}
     disabled={disabled}
     class="hidden peer"
+    {...rest}
   />
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    class="border rounded-sm border-gray-500 w-4 h-4 text-background peer-checked:bg-foreground peer-checked:border-foreground peer-checked:text-background"
+  <div
+    class="border rounded-radius w-4 h-4 text-transparent border-text-primary bg-background-base peer-checked:text-background-base peer-checked:border-foreground peer-checked:bg-text-primary peer-disabled:border-text-muted peer-disabled:cursor-default"
   >
-    <path d="M20 6 9 17l-5-5"></path>
-  </svg>
-  {label && <span class="text-gray-700">{label}</span>}
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M20 6 9 17l-5-5"></path>
+    </svg>
+  </div>
+  {
+    label && (
+      <span class={`peer-disabled:text-text-muted ${className}`}>{label}</span>
+    )
+  }
 </label>

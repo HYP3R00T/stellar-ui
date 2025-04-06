@@ -1,5 +1,7 @@
 ---
-export interface InputProps {
+import type { HTMLAttributes } from "astro/types";
+
+export interface InputProps extends Omit<HTMLAttributes<"input">, "type"> {
   type?: string;
   class?: string;
   placeholder?: string;
@@ -26,7 +28,7 @@ const uniqueId = id || `input-${Math.random().toString(36).slice(2, 9)}`;
 
 <input
   type={type}
-  class={`flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm ${className}`}
+  class={`flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-text-primary placeholder:text-text-muted focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm ${className}`}
   placeholder={placeholder}
   value={value}
   disabled={disabled}

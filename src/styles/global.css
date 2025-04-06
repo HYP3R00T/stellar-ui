@@ -17,6 +17,9 @@
     --accent-primary: hsl(210, 90%, 72%);
     --accent-secondary: hsl(190, 85%, 70%);
 
+    /* Blob Colors */
+    --blob: hsl(220, 90%, 60%);
+
     /* UI */
     --border: hsl(220, 10%, 20%);
     --input: hsl(220, 10%, 15%);
@@ -69,6 +72,7 @@
   --color-text-muted: var(--text-muted);
   --color-accent-primary: var(--accent-primary);
   --color-accent-secondary: var(--accent-secondary);
+  --color-blob: var(--blob);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-focus-ring: var(--focus-ring);
@@ -76,7 +80,6 @@
   --color-warning: var(--warning);
   --color-danger: var(--danger);
   --color-info: var(--info);
-  --radius-radius: var(--radius);
   --color-accent-purple: var(--accent-purple);
   --color-accent-blue: var(--accent-blue);
   --color-accent-cyan: var(--accent-cyan);
@@ -85,6 +88,10 @@
   --color-accent-yellow: var(--accent-yellow);
   --color-accent-orange: var(--accent-orange);
   --color-accent-red: var(--accent-red);
+
+  --radius-radius: var(--radius);
+  --radius-lg: calc(var(--radius) + 3px);
+  --radius-sm: calc(var(--radius) - 3px);
 
   --font-display: "Nunito Variable", sans-serif;
   --font-mono: "Source Code Pro Variable", monospace;
@@ -145,12 +152,12 @@
     @apply border-border my-8 opacity-50;
   }
 
-  code {
-    @apply bg-background-surface/50 px-1.5 py-0.5 rounded text-accent-blue font-mono text-sm;
-  }
-
   pre {
     @apply bg-background-surface text-text-primary p-4 rounded-radius overflow-x-auto;
+  }
+
+  code {
+    @apply bg-background-surface/50 px-1.5 py-0.5 rounded text-accent-blue font-mono text-sm;
   }
 
   pre code {
@@ -248,7 +255,7 @@ code {
 }
 
 .prose pre {
-  @apply bg-background-surface text-text-primary p-4 rounded-radius overflow-x-auto;
+  @apply bg-background-surface text-text-primary p-4 mb-4 rounded-radius overflow-x-auto;
 }
 
 .prose code {

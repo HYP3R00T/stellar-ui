@@ -1,7 +1,60 @@
 ---
 import CoreLayout from "@/layouts/CoreLayout.astro";
+
+import Pagination from "@/components/ui/Pagination.astro";
+
+import NavigationMenu from "@/components/ui/NavigationMenu/NavigationMenu.astro";
+import NavigationMenuContent from "@/components/ui/NavigationMenu/NavigationMenuContent.astro";
+import NavigationMenuItem from "@/components/ui/NavigationMenu/NavigationMenuItem.astro";
+import NavigationMenuLink from "@/components/ui/NavigationMenu/NavigationMenuLink.astro";
+import NavigationMenuList from "@/components/ui/NavigationMenu/NavigationMenuList.astro";
+import NavigationMenuTrigger from "@/components/ui/NavigationMenu/NavigationMenuTrigger.astro";
+import NavigationMenuViewport from "@/components/ui/NavigationMenu/NavigationMenuViewport.astro";
 ---
 
 <div class="">
-  <CoreLayout> This is the main page </CoreLayout>
+  <CoreLayout>
+    This is a playground
+    <section class="space-y-4 p-6 w-full">
+      <h2>Alert Demo</h2>
+      <div class="">
+        <Pagination
+          prevUrl="/page/1"
+          nextUrl="/page/3"
+          firstUrl="/page/1"
+          lastUrl="/page/10"
+          currentPage={2}
+          totalPages={10}
+        />
+      </div>
+    </section>
+    <section class="space-y-4 p-6">
+      <h2>NavigationMenu Demo</h2>
+      <div class="">
+        <NavigationMenu>
+          <NavigationMenuList>
+            <NavigationMenuItem id="menu1">
+              <div slot="trigger">
+                <NavigationMenuTrigger id="menu1"
+                  >Socialogy</NavigationMenuTrigger
+                >
+              </div>
+              <div slot="content">
+                <NavigationMenuContent id="menu1">
+                  <NavigationMenuLink href="/page1"
+                    >Page is long 1</NavigationMenuLink
+                  >
+                  <NavigationMenuLink href="/page2"
+                    >Page is long 222</NavigationMenuLink
+                  >
+                </NavigationMenuContent>
+              </div>
+            </NavigationMenuItem>
+            <NavigationMenuLink href="/page1">Page is long 5</NavigationMenuLink
+            >
+          </NavigationMenuList>
+        </NavigationMenu>
+      </div>
+    </section>
+  </CoreLayout>
 </div>

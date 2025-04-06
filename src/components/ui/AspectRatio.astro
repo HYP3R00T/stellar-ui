@@ -1,17 +1,10 @@
 ---
-export interface AspectRatioProps {
-  ratio: number;
-  class?: string;
-  style?: string;
-}
-const { ratio, class: className, style } = Astro.props;
+const { ratio = 16 / 9 } = Astro.props;
+const paddingTop = (1 / ratio) * 100;
 ---
 
-<div
-  class={`relative w-full ${className || ""}`}
-  style={`padding-top: ${100 / ratio}%; ${style || ""}`}
->
-  <div class="absolute inset-0">
+<div class="relative w-full" style={`padding-top: ${paddingTop}%;`}>
+  <div class="absolute inset-0 w-full h-full">
     <slot />
   </div>
 </div>
