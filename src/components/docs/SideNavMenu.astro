@@ -31,17 +31,17 @@ const { class: className } = Astro.props;
       href="/"
       class={`h-8! ${
         topLevelSection === "home"
-          ? "font-bold text-background-base! bg-accent-primary"
+          ? "font-bold text-background-base! bg-accent-primary hover:text-text-primary!"
           : ""
       }`}
     >
       Home
     </Link>
-    <Link
+    <!-- <Link
       href="/guides"
       class={`h-8! ${
         topLevelSection === "guides"
-          ? "font-bold text-background-base! bg-accent-primary"
+          ? "font-bold text-background-base! bg-accent-primary hover:text-text-primary!"
           : ""
       }`}
     >
@@ -51,7 +51,7 @@ const { class: className } = Astro.props;
       href="/eas"
       class={`h-8! ${
         topLevelSection === "eas"
-          ? "font-bold text-background-base! bg-accent-primary"
+          ? "font-bold text-background-base! bg-accent-primary hover:text-text-primary!"
           : ""
       }`}
     >
@@ -61,7 +61,7 @@ const { class: className } = Astro.props;
       href="/reference"
       class={`h-8! ${
         topLevelSection === "reference"
-          ? "font-bold text-background-base! bg-accent-primary"
+          ? "font-bold text-background-base! bg-accent-primary hover:text-text-primary!"
           : ""
       }`}
     >
@@ -71,12 +71,12 @@ const { class: className } = Astro.props;
       href="/learn"
       class={`h-8! ${
         topLevelSection === "learn"
-          ? "font-bold text-background-base! bg-accent-primary"
+          ? "font-bold text-background-base! bg-accent-primary hover:text-text-primary!"
           : ""
       }`}
     >
       Learn
-    </Link>
+    </Link> -->
   </div>
 
   <!-- Side navigation menu based on the current top-level section -->
