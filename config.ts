@@ -16,18 +16,6 @@ export const LOCALE = {
     lang: "en", // html lang code. Set this empty and default will be "en"
 }
 
-// Just works with top-level folders and files. For files, don't add extension as it looks for the slug, and not the file name.
-export const side_nav_menu_order: string[] = [
-    // "getting-started",
-    // "guides",
-    // "guides/pages",
-    // "guides/table-of-contents",
-    // "guides/sidebar-navigation",
-    // "custom-components",
-    // "reference",
-    "button"
-];
-
 // Don't delete anything. You can use 'true' or 'false'.
 // These are global settings
 export const docconfig = {
