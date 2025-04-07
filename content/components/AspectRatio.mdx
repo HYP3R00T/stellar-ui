@@ -7,6 +7,18 @@ import AspectRatio from "@/components/ui/AspectRatio.astro";
 import { Image } from "astro:assets";
 import myImage from "@/assets/setup.png";
 
+## Preview
+
+<AspectRatio ratio={3}>
+    <Image
+    src={myImage}
+    alt="A description of my image."
+    class="rounded-radius h-full w-full object-cover"
+    />
+</AspectRatio>
+
+## Code
+
 ```astro
 ---
 import AspectRatio from "@/components/ui/AspectRatio.astro";
@@ -22,11 +34,3 @@ import myImage from "@/assets/setup.png";
     />
 </AspectRatio>
 ```
-
-<AspectRatio ratio={3}>
-    <Image
-    src={myImage}
-    alt="A description of my image."
-    class="rounded-radius h-full w-full object-cover"
-    />
-</AspectRatio>

@@ -1,54 +1,182 @@
 @import "tailwindcss";
 
 @layer base {
-  /* Dark Theme */
   :root {
+    --background-base: hsl(230, 20%, 5%);
+    --background-surface: hsl(230, 20%, 10%);
+    --background-elevated: hsl(230, 20%, 18%);
+
+    --text-primary: hsl(210, 40%, 97%);
+    --text-secondary: hsl(215, 25%, 75%);
+    --text-muted: hsl(215, 15%, 58%);
+
+    --accent-primary: hsl(210, 100%, 68%);
+    --accent-secondary: hsl(180, 80%, 60%);
+
+    --blob: hsl(210, 100%, 62%);
+    --border: hsl(230, 20%, 25%);
+    --input: hsl(230, 20%, 8%);
+    --focus-ring: hsl(210, 100%, 68%);
+
+    --success: hsl(145, 55%, 52%);
+    --warning: hsl(42, 85%, 58%);
+    --danger: hsl(0, 70%, 60%);
+    --info: hsl(195, 85%, 64%);
+
+    --radius: 0.35rem;
+
+    --accent-purple: hsl(270, 70%, 72%);
+    --accent-blue: hsl(210, 100%, 68%);
+    --accent-cyan: hsl(190, 90%, 65%);
+    --accent-teal: hsl(175, 75%, 60%);
+    --accent-green: hsl(145, 55%, 52%);
+    --accent-yellow: hsl(42, 85%, 58%);
+    --accent-orange: hsl(30, 80%, 56%);
+    --accent-red: hsl(0, 70%, 60%);
+
+    --astro-code-background: var(--background-surface);
+    --astro-code-foreground: var(--text-primary);
+    --astro-code-token-constant: var(--accent-cyan);
+    --astro-code-token-string: var(--accent-yellow);
+    --astro-code-token-comment: var(--text-muted);
+    --astro-code-token-keyword: var(--accent-blue);
+    --astro-code-token-parameter: var(--accent-orange);
+    --astro-code-token-function: var(--accent-purple);
+    --astro-code-token-string-expression: var(--accent-green);
+    --astro-code-token-punctuation: var(--accent-teal);
+    --astro-code-token-link: var(--accent-red);
+  }
+
+  [data-theme="dark"] {
+    --background-base: hsl(230, 20%, 5%);
+    --background-surface: hsl(230, 20%, 10%);
+    --background-elevated: hsl(230, 20%, 18%);
+
+    --text-primary: hsl(210, 40%, 97%);
+    --text-secondary: hsl(215, 25%, 75%);
+    --text-muted: hsl(215, 15%, 58%);
+
+    --accent-primary: hsl(210, 100%, 68%);
+    --accent-secondary: hsl(180, 80%, 60%);
+
+    --blob: hsl(210, 100%, 62%);
+    --border: hsl(230, 20%, 25%);
+    --input: hsl(230, 20%, 8%);
+    --focus-ring: hsl(210, 100%, 68%);
+
+    --success: hsl(145, 55%, 52%);
+    --warning: hsl(42, 85%, 58%);
+    --danger: hsl(0, 70%, 60%);
+    --info: hsl(195, 85%, 64%);
+
+    --radius: 0.35rem;
+
+    --accent-purple: hsl(270, 70%, 72%);
+    --accent-blue: hsl(210, 100%, 68%);
+    --accent-cyan: hsl(190, 90%, 65%);
+    --accent-teal: hsl(175, 75%, 60%);
+    --accent-green: hsl(145, 55%, 52%);
+    --accent-yellow: hsl(42, 85%, 58%);
+    --accent-orange: hsl(30, 80%, 56%);
+    --accent-red: hsl(0, 70%, 60%);
+
+    --astro-code-background: var(--background-surface);
+    --astro-code-foreground: var(--text-primary);
+    --astro-code-token-constant: var(--accent-cyan);
+    --astro-code-token-string: var(--accent-yellow);
+    --astro-code-token-comment: var(--text-muted);
+    --astro-code-token-keyword: var(--accent-blue);
+    --astro-code-token-parameter: var(--accent-orange);
+    --astro-code-token-function: var(--accent-purple);
+    --astro-code-token-string-expression: var(--accent-green);
+    --astro-code-token-punctuation: var(--accent-teal);
+    --astro-code-token-link: var(--accent-red);
+  }
+
+  [data-theme="ayu-dark"] {
     /* Backgrounds */
-    --background-base: hsl(225, 22%, 12%);
-    --background-surface: hsl(220, 23%, 23%);
-    --background-elevated: hsl(220, 15%, 35%);
+    --background-base: hsl(220, 16%, 14%);
+    --background-surface: hsl(220, 16%, 18%);
+    --background-elevated: hsl(220, 16%, 24%);
 
     /* Text */
-    --text-primary: hsl(210, 50%, 97%);
-    --text-secondary: hsl(214, 27%, 80%);
-    --text-muted: hsl(214, 15%, 69%);
+    --text-primary: hsl(42, 30%, 95%);
+    --text-secondary: hsl(42, 20%, 75%);
+    --text-muted: hsl(42, 15%, 60%);
 
     /* Accent Colors */
-    --accent-primary: hsl(210, 90%, 72%);
-    --accent-secondary: hsl(190, 85%, 70%);
+    --accent-primary: hsl(35, 100%, 60%); /* Warm orange */
+    --accent-secondary: hsl(185, 70%, 55%); /* Teal/cyan */
 
-    /* Blob Colors */
-    --blob: hsl(220, 90%, 60%);
+    /* Decorative */
+    --blob: hsl(185, 80%, 50%);
 
     /* UI */
-    --border: hsl(220, 23%, 20%);
-    --input: hsl(220, 23%, 15%);
-    --focus-ring: hsl(220, 90%, 70%);
+    --border: hsl(220, 10%, 28%);
+    --input: hsl(220, 10%, 20%);
+    --focus-ring: hsl(35, 100%, 65%);
 
-    /* Simple Status Colors */
-    --success: hsl(122, 55%, 67%);
-    --warning: hsl(33, 85%, 63%);
-    --danger: hsl(0, 75%, 65%);
-    --info: hsl(190, 85%, 70%);
+    /* Status */
+    --success: hsl(150, 45%, 55%);
+    --warning: hsl(42, 100%, 58%);
+    --danger: hsl(0, 70%, 55%);
+    --info: hsl(195, 70%, 60%);
 
-    --radius: 0.3rem;
+    --radius: 0.4rem;
 
-    /* For codeblocks */
-    --accent-purple: hsl(265, 70%, 75%);
-    --accent-blue: hsl(210, 90%, 72%);
-    --accent-cyan: hsl(190, 85%, 70%);
-    --accent-teal: hsl(174, 75%, 65%);
-    --accent-green: hsl(122, 55%, 67%);
-    --accent-yellow: hsl(42, 85%, 65%);
-    --accent-orange: hsl(33, 85%, 63%);
-    --accent-red: hsl(0, 75%, 65%);
+    /* Code Block Accents (from Ayu-inspired palette) */
+    --accent-purple: hsl(265, 65%, 75%);
+    --accent-blue: hsl(210, 90%, 70%);
+    --accent-cyan: hsl(190, 75%, 65%);
+    --accent-teal: hsl(175, 65%, 60%);
+    --accent-green: hsl(130, 45%, 55%);
+    --accent-yellow: hsl(42, 100%, 58%);
+    --accent-orange: hsl(30, 90%, 60%);
+    --accent-red: hsl(0, 70%, 55%);
+  }
 
-    /* Code Theme Colors */
-    --astro-code-background: color-mix(
-      in srgb,
-      var(--background-surface) 30%,
-      transparent
-    );
+  [data-theme="light"] {
+    /* Backgrounds */
+    --background-base: hsl(0, 0%, 98%);
+    --background-surface: hsl(220, 20%, 97%);
+    --background-elevated: hsl(220, 20%, 92%);
+
+    /* Text */
+    --text-primary: hsl(230, 30%, 10%);
+    --text-secondary: hsl(230, 20%, 35%);
+    --text-muted: hsl(230, 15%, 55%);
+
+    /* Accent Colors (deeper tones for contrast) */
+    --accent-primary: hsl(210, 100%, 42%);
+    --accent-secondary: hsl(180, 80%, 38%);
+
+    /* Blob / Decorative */
+    --blob: hsl(210, 100%, 40%);
+
+    /* UI */
+    --border: hsl(230, 15%, 85%);
+    --input: hsl(230, 15%, 96%);
+    --focus-ring: hsl(210, 100%, 45%);
+
+    /* Status */
+    --success: hsl(145, 55%, 36%);
+    --warning: hsl(42, 85%, 44%);
+    --danger: hsl(0, 70%, 42%);
+    --info: hsl(195, 85%, 44%);
+
+    --radius: 0.35rem;
+
+    /* Code Block Accents (richer for better readability) */
+    --accent-purple: hsl(270, 70%, 48%);
+    --accent-blue: hsl(210, 100%, 42%);
+    --accent-cyan: hsl(190, 90%, 40%);
+    --accent-teal: hsl(175, 75%, 38%);
+    --accent-green: hsl(145, 55%, 36%);
+    --accent-yellow: hsl(42, 85%, 44%);
+    --accent-orange: hsl(30, 80%, 42%);
+    --accent-red: hsl(0, 70%, 42%);
+
+    --astro-code-background: var(--background-surface);
     --astro-code-foreground: var(--text-primary);
     --astro-code-token-constant: var(--accent-cyan);
     --astro-code-token-string: var(--accent-yellow);
@@ -168,7 +296,7 @@
 /* ===== selection ===== */
 
 ::selection {
-  @apply bg-text-primary text-background-base;
+  @apply bg-accent-primary text-background-base;
 }
 
 /* ===== scrollbar ===== */
@@ -185,7 +313,7 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  @apply bg-background-surface border-background-base rounded;
+  @apply bg-background-elevated rounded;
 }
 
 /* Handle on hover */
@@ -255,7 +383,7 @@ code {
 }
 
 .prose pre {
-  @apply bg-background-surface text-text-primary p-4 mb-4 rounded-radius overflow-x-auto;
+  @apply bg-background-surface text-text-primary p-4 mb-4 rounded-lg overflow-x-auto;
 }
 
 .prose code {
@@ -284,7 +412,7 @@ code {
 }
 
 .prose img {
-  @apply rounded-radius mx-auto;
+  @apply rounded-lg mx-auto;
 }
 
 .prose hr {

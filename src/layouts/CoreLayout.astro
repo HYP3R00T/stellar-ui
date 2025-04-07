@@ -6,11 +6,9 @@ import { docconfig, LOCALE, SITE } from "config";
 import type { BaseLayoutProps } from "@/lib/types";
 import { capitalizeFirstLetter } from "@/lib/utils";
 import Header from "@/components/core/Header.astro";
-import BlobBackground from "@/components/core/BlobBackground.astro";
 import Copy from "@/components/core/Copy.astro";
 import MainContent from "@/components/docs/MainContent.astro";
 import SideNavMenu from "@/components/docs/SideNavMenu.astro";
-import ScrollArea from "@/components/ui/ScrollArea.astro";
 import TableofContent from "@/components/docs/TableofContents.astro";
 
 const {
@@ -43,16 +41,18 @@ const {
   </head>
 
   <body>
-    <!-- <BlobBackground /> -->
     <main class="flex flex-col items-center">
       <Copy />
       <Header />
-      <div class="flex h-[calc(100dvh-1px-3.5rem)] w-full">
-        <div class="w-1/5 max-w-72 h-full overflow-y-scroll">
+
+      <div class="flex h-[calc(100dvh-1px-3.5rem)] w-full flex-row">
+        <div class="w-0 md:w-1/3 lg:w-1/5 md:max-w-80 h-full overflow-y-scroll">
           <SideNavMenu />
         </div>
 
-        <div class="h-full w-full overflow-y-scroll flex justify-center">
+        <div
+          class="w-screen md:w-2/3 lg:w-3/5 h-full overflow-y-scroll flex flex-1 justify-center"
+        >
           <MainContent
             title={title}
             author={author}
@@ -68,9 +68,13 @@ const {
           </MainContent>
         </div>
 
-        <div class="w-1/5 max-w-72 h-full overflow-y-scroll">
-          <TableofContent {headings} />
-        </div>
+        {
+          !hide_toc && (
+            <div class="w-0 md:w-0 lg:w-1/5 md:max-w-80 h-full overflow-y-scroll">
+              <TableofContent {headings} />
+            </div>
+          )
+        }
       </div>
     </main>
   </body>

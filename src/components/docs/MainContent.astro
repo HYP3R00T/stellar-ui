@@ -1,6 +1,7 @@
 ---
 import type { MainContentProps } from "@/lib/types";
 import { capitalizeFirstLetter } from "@/lib/utils";
+import Footer from "@/components/core/Footer.astro";
 
 const {
   title,
@@ -15,9 +16,10 @@ const {
 } = Astro.props as MainContentProps;
 ---
 
-<div class="bg-background pt-4 px-6 flex-grow max-w-6xl">
+<div class="flex w-full flex-col md:pt-10 px-4 md:px-14 max-w-6xl">
   <h1 class="">{capitalizeFirstLetter(title)}</h1>
-  <div class="prose pt-4">
+  <div class="prose py-10 w-full">
     <slot />
   </div>
+  <!-- <Footer /> -->
 </div>

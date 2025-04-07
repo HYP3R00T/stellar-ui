@@ -60,11 +60,11 @@ export const menuConfig: GlobalMenuConfig = {
     },
     guides: {
         "Overview": {
-            icon: "book",
-            items: ["/guides/overview"],
+            icon: "discord",
+            items: ["/guides/overview", "/guides/overview2"],
         },
         "Development process": {
-            icon: "box",
+            icon: "github",
             items: [
                 "/guides/develop-an-app",
                 "/guides/configure-app-config",

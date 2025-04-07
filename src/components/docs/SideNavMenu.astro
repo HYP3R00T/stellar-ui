@@ -24,30 +24,30 @@ const { class: className } = Astro.props;
 ---
 
 <div
-  class={`flex flex-col gap-1 m-0 w-full h-full border-r-[1px] border-border ${className}`}
+  class={`flex flex-col gap-1 m-0 w-full h-full md:border-r-[1px] border-border ${className}`}
 >
   <div class="p-4 flex flex-col gap-1 border-b-[1px] border-border">
     <Link
       href="/"
       class={`h-8! ${
         topLevelSection === "home"
-          ? "font-bold text-background-base! bg-accent-primary hover:text-text-primary!"
+          ? "font-bold text-background-base! bg-accent-primary hover:bg-accent-primary/80!"
           : ""
       }`}
     >
       Home
     </Link>
-    <!-- <Link
-      href="/guides"
+    <Link
+      href="/guides/overview"
       class={`h-8! ${
         topLevelSection === "guides"
-          ? "font-bold text-background-base! bg-accent-primary hover:text-text-primary!"
+          ? "font-bold text-background-base! bg-accent-primary hover:bg-accent-primary/80!"
           : ""
       }`}
     >
       Guides
     </Link>
-    <Link
+    <!-- <Link
       href="/eas"
       class={`h-8! ${
         topLevelSection === "eas"
@@ -84,7 +84,7 @@ const { class: className } = Astro.props;
     {
       menu.map((section) => (
         <div class="flex flex-col gap-2">
-          <div class="flex flex-row gap-2 items-center">
+          <div class="flex flex-row px-4 gap-2 items-center">
             {section.icon && <Icon name={section.icon} />}
             <p class="text-text-primary font-medium mt-0!">{section.title}</p>
           </div>
@@ -92,8 +92,8 @@ const { class: className } = Astro.props;
             {section.items.map((item) => {
               const isActive = pathname === item.href;
               const classNameLink = isActive
-                ? "text-text-primary! bg-background-surface/30!"
-                : "text-text-secondary! hover:text-accent-primary!";
+                ? "text-text-primary! bg-background-surface!"
+                : "text-text-secondary! hover:text-accent-primary! hover:bg-transparent!";
               return (
                 // <a href={item.href} class={`text-sm ${classNameLink}`}>
                 //   {item.title}
