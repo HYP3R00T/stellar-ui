@@ -1,0 +1,28 @@
+---
+title: Select
+hide_breadcrumbs: true
+---
+
+import Select from "@/components/ui/Select.astro";
+
+## Preview
+
+<Select options={[
+    { label: "Dark", value: "dark" },
+    { label: "light", value: "light" }
+]} name="theme" size="sm" id="theme-selector" />
+
+## Code
+
+```astro
+---
+import Select from "@/components/ui/Select.astro";
+
+const themes = [
+  { label: "Dark", value: "dark" },
+  { label: "light", value: "light" }
+];
+---
+
+<Select options={themes} name="theme" size="sm" id="theme-selector" />
+```

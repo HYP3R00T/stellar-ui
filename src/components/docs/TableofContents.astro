@@ -22,7 +22,7 @@ const hasToC = headings && headings.length > 1;
     hasToC && (
       <div class="flex flex-col gap-2">
         <div class="flex flex-row px-4 gap-2 items-center">
-          <Icon name="github" />
+          <Icon name="table-of-contents" />
           <p class="text-text-primary font-medium mt-0!">On this Page</p>
         </div>
         <div class="flex flex-col gap-1">
@@ -31,7 +31,7 @@ const hasToC = headings && headings.length > 1;
             return (
               <Link
                 href={`#${heading.slug}`}
-                class={`h-6!  hover:text-accent-primary! hover:bg-transparent! ${classNameLink} toc-link`}
+                class={`hover:text-accent-primary! hover:bg-transparent! ${classNameLink} toc-link`}
                 key={heading.slug}
                 data-slug={heading.slug}
               >

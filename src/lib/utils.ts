@@ -22,11 +22,13 @@ type MenuSection = {
     title: string;
     icon?: string | null;
     items: MenuLink[];
+    hideTitle?: boolean;
 };
 
 type SectionGroupConfig = {
     icon?: string;
     items: string[];
+    hide_section_name?: boolean;
 };
 
 type SectionConfig = {
@@ -45,7 +47,7 @@ export function buildMenu(
 
     const menu: MenuSection[] = [];
 
-    for (const [sectionTitle, { icon, items }] of Object.entries(sectionConfig)) {
+    for (const [sectionTitle, { icon, items, hide_section_name }] of Object.entries(sectionConfig)) {
         const sectionItems: MenuLink[] = [];
 
         for (const path of items) {
@@ -65,11 +67,10 @@ export function buildMenu(
         menu.push({
             title: sectionTitle,
             icon: icon ?? null,
+            hideTitle: hide_section_name ?? false,
             items: sectionItems,
         });
     }
 
     return menu;
 }
-
-

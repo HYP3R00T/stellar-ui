@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-import Button from "../ui/Button.astro";
+import Button from "@/components/ui/Button.astro";
 ---
 
 <style is:global>
@@ -14,44 +14,19 @@ import Button from "../ui/Button.astro";
     padding: 0;
   }
 
-  /* .code-buttons button {
-    position: relative;
-    top: 1rem;
-    right: 0.5rem;
-    z-index: 100;
-    transition: all 0.2s;
-    opacity: 0.2;
-  } */
-
-  /* .code-buttons button:hover {
-    opacity: 1;
-  } */
-
   .code-buttons button.clicked {
     @apply text-accent-blue;
   }
 </style>
 
 <template id="copyButtonTemplate">
-  <Button
-    class="relative top-4 right-2 z-50 opacity-30 hover:opacity-100"
-    size="icon"
-    variant="ghost"
-  >
+  <Button class="relative top-4 right-2 z-50" size="icon" variant="ghost">
     <Icon
       name="copy"
       class="h-6 w-6 lg:h-5 lg:w-5 transition-transform duration-300 ease-in-out"
     />
   </Button>
 </template>
-<!-- <template id="copyButtonTemplate">
-  <button class="p-2 text-text-muted">
-    <Icon
-      name="copy"
-      class="h-6 w-6 lg:h-5 lg:w-5 transition-transform duration-300 ease-in-out"
-    />
-  </button>
-</template> -->
 
 <script>
   document.addEventListener("astro:page-load", () => {

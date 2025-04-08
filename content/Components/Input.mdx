@@ -5,30 +5,7 @@ hide_breadcrumbs: true
 
 import Input from "@/components/ui/Input.astro";
 
-```astro
----
-import Input from "@/components/ui/Input.astro";
----
-
-<Input placeholder="Enter text" />
-<Input type="email" placeholder="Enter your email" required />
-<Input type="password" placeholder="Enter password" required />
-<Input placeholder="Disabled input" disabled />
-<Input class="border-gray-500 focus:ring-green-500" placeholder="Styled input" />
-<Input name="username" id="username" placeholder="Enter username" />
-<Input type="text" placeholder="Required input" required />
-<Input type="text" value="Pre-filled value" />
-<Input
-    type="text"
-    placeholder="Full-featured input"
-    class=""
-    value="Hello World"
-    disabled={false}
-    name="fullInput"
-    id="fullInput"
-    required
-/>
-```
+## Preview
 
 <div class="flex flex-col gap-2">
   <Input placeholder="Enter text" />
@@ -53,3 +30,30 @@ import Input from "@/components/ui/Input.astro";
     required
   />
 </div>
+
+## Code
+
+```astro
+---
+import Input from "@/components/ui/Input.astro";
+---
+
+<Input placeholder="Enter text" />
+<Input type="email" placeholder="Enter your email" required />
+<Input type="password" placeholder="Enter password" required />
+<Input placeholder="Disabled input" disabled />
+<Input class="border-gray-500 focus:ring-green-500" placeholder="Styled input" />
+<Input name="username" id="username" placeholder="Enter username" />
+<Input type="text" placeholder="Required input" required />
+<Input type="text" value="Pre-filled value" />
+<Input
+    type="text"
+    placeholder="Full-featured input"
+    class=""
+    value="Hello World"
+    disabled={false}
+    name="fullInput"
+    id="fullInput"
+    required
+/>
+```

@@ -1,3 +1,5 @@
+import type { GlobalnavigationMenu } from "@/lib/types";
+
 export const SITE = {
     website: "https://hyperoot.dev",
     author: "Rajesh",
@@ -18,7 +20,7 @@ export const LOCALE = {
 
 // Don't delete anything. You can use 'true' or 'false'.
 // These are global settings
-export const docconfig = {
+export const docConfig = {
     hide_table_of_contents: false,
     hide_breadcrumbs: false,
     hide_side_navigations: false,
@@ -29,41 +31,29 @@ export const docconfig = {
     hide_author: true,
 };
 
-export type MenuSectionConfig = {
-    icon?: string;
-    items: string[];
-};
-
-export type TopLevelMenuConfig = {
-    icon?: string;
-    label?: string;
-    items: {
-        [sectionTitle: string]: MenuSectionConfig;
-    };
-};
-
-export type GlobalMenuConfig = {
-    [sectionName: string]: TopLevelMenuConfig;
-};
-
-export const menuConfig: GlobalMenuConfig = {
+export const navigationMenu: GlobalnavigationMenu = {
     home: {
         icon: "github",
         label: "Home",
+        href: "/",
         items: {
             "Get Started": {
                 icon: "discord",
-                items: ["/get-started"],
+                hide_section_name: true,
+                items: ["/getting-started"],
             },
             "Components": {
                 icon: "github",
                 items: [
+                    "/components/alert",
                     "/components/aspectratio",
                     "/components/badge",
                     "/components/button",
                     "/components/checkbox",
                     "/components/input",
                     "/components/pagination",
+                    "/components/select",
+
                 ],
             },
         }
@@ -71,17 +61,26 @@ export const menuConfig: GlobalMenuConfig = {
     guides: {
         icon: "close",
         label: "Guides",
+        href: "/guides/authoring-content-in-md",
         items: {
-            "Overview": {
-                icon: "discord",
-                items: ["/guides/overview", "/guides/overview2"],
-            },
-            "Development process": {
+            "Guides": {
                 icon: "github",
+                hide_section_name: true,
                 items: [
-                    "/guides/develop-an-app",
-                    "/guides/configure-app-config",
-                    "/guides/environment-variables",
+                    "/guides/authoring-content-in-md",
+                    "/guides/authoring-content-in-mdx",
+                    "/guides/breadcrumbs",
+                    "/guides/pages",
+                    "/guides/sidebar-navigation",
+                    "/guides/site-search",
+                    "/guides/table-of-contents",
+                ],
+            },
+            "Reference": {
+                icon: "discord",
+                items: [
+                    "/reference/configuration-ref",
+                    "/reference/frontmatter-ref"
                 ],
             },
         },

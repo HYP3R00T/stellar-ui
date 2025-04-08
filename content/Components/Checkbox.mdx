@@ -5,6 +5,14 @@ hide_breadcrumbs: true
 
 import Checkbox from "@/components/ui/Checkbox.astro";
 
+## Preview
+
+<Checkbox id="terms" label="Accept terms and conditions" />
+<Checkbox id="newsletter" label="Subscribe to newsletter" checked />
+<Checkbox id="disabled" label="Disabled Checkbox" disabled />
+
+## Code
+
 ```astro
 ---
 import Checkbox from "@/components/ui/Checkbox.astro";
@@ -14,7 +22,3 @@ import Checkbox from "@/components/ui/Checkbox.astro";
 <Checkbox id="newsletter" label="Subscribe to newsletter" checked />
 <Checkbox id="disabled" label="Disabled Checkbox" disabled />
 ```
-
-<Checkbox id="terms" label="Accept terms and conditions" />
-<Checkbox id="newsletter" label="Subscribe to newsletter" checked />
-<Checkbox id="disabled" label="Disabled Checkbox" disabled />

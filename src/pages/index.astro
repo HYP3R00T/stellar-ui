@@ -1,10 +1,21 @@
 ---
 import CoreLayout from "@/layouts/CoreLayout.astro";
+
+import Alert from "@/components/ui/Alert.astro";
 ---
 
 <CoreLayout>
   This is a playground
   <section class="space-y-4 w-full">
     <h1>Something nice</h1>
+  </section>
+  <section class="space-y-4 w-full">
+    <Alert variant="warning">
+      This operation could result in data loss. Proceed with caution!
+    </Alert>
+
+    <Alert variant="success" title="All good!" icon="rss">
+      You've completed all the steps successfully.
+    </Alert>
   </section>
 </CoreLayout>

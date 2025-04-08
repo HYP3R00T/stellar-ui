@@ -1,0 +1,67 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { Icon } from "astro-icon/components";
+
+type Variant = "default" | "info" | "success" | "warning" | "danger";
+
+interface AlertProps extends HTMLAttributes<"div"> {
+  variant?: Variant;
+  title?: string;
+  icon?: string;
+  class?: string;
+}
+
+const {
+  variant = "default",
+  title,
+  icon,
+  class: className,
+  ...rest
+} = Astro.props as AlertProps;
+
+const variantIcons: Record<Variant, string> = {
+  info: "github",
+  success: "rss",
+  warning: "x",
+  danger: "x",
+  default: "rss",
+};
+
+const defaultTitles: Record<Variant, string> = {
+  info: "Info",
+  success: "Success",
+  warning: "Warning",
+  danger: "Danger",
+  default: "Notice",
+};
+
+const usedIcon = icon || variantIcons[variant];
+const usedTitle = title || defaultTitles[variant];
+---
+
+<div
+  class={`alert relative w-full rounded-radius border px-4 py-3
+    ${
+      variant === "info"
+        ? "bg-info border-info text-background-base"
+        : variant === "success"
+          ? "bg-success border-success text-background-base"
+          : variant === "warning"
+            ? "bg-warning border-warning text-background-base"
+            : variant === "danger"
+              ? "bg-danger border-danger text-background-base"
+              : "bg-text-muted border-border text-background-base"
+    }
+    ${className}`}
+  role="alert"
+  {...rest}
+>
+  <div class="flex items-center gap-2">
+    {usedIcon && <Icon name={usedIcon} class="h-5 w-5 shrink-0" />}
+    <div class="font-semibold leading-tight">{usedTitle}</div>
+  </div>
+
+  <div class="">
+    <slot />
+  </div>
+</div>

@@ -1,0 +1,65 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { Icon } from "astro-icon/components";
+
+interface Option {
+  label: string;
+  value: string;
+  disabled?: boolean;
+}
+
+interface SelectProps extends HTMLAttributes<"select"> {
+  options?: Option[];
+  size?: "default" | "sm" | "lg";
+  icon?: string;
+  class?: string;
+}
+
+const {
+  options = [],
+  size = "default",
+  icon = "chevron-down",
+  class: className,
+  ...rest
+} = Astro.props as SelectProps;
+---
+
+<div class="relative w-fit">
+  <select
+    class={`appearance-none rounded border cursor-pointer bg-background-base text-text-primary border-border
+      focus:outline-none focus:ring-1 focus:ring-ring
+      disabled:opacity-60 disabled:pointer-events-none
+
+      ${
+        {
+          default: "h-9 px-4 py-1 text-base w-40",
+          sm: "h-8 px-3 py-1 text-sm w-32",
+          lg: "h-10 px-5 py-2 text-lg w-48",
+        }[size]
+      }
+      ${className}
+    `}
+    {...rest}
+  >
+    <slot>
+      {
+        options.map(({ label, value, disabled }) => (
+          <option value={value} disabled={disabled}>
+            {label}
+          </option>
+        ))
+      }
+    </slot>
+  </select>
+
+  {
+    icon && (
+      <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-text-primary">
+        <Icon
+          name={icon}
+          class="h-5 w-5 transition-transform duration-300 ease-in-out"
+        />
+      </div>
+    )
+  }
+</div>

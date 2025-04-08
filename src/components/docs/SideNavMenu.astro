@@ -4,15 +4,29 @@ import { Icon } from "astro-icon/components";
 import Link from "@/components/ui/Link.astro";
 
 import { buildMenu } from "@/lib/utils";
-import { menuConfig } from "config";
+import { navigationMenu } from "config";
 
 const pathname: string = new URL(Astro.request.url).pathname;
-const firstSegment = pathname.split("/")[1];
-const topLevelSection = menuConfig[firstSegment] ? firstSegment : "home";
+
+// Helper to resolve current section based on path
+function resolveTopLevelSection(pathname: string): string {
+  for (const [sectionKey, sectionValue] of Object.entries(navigationMenu)) {
+    for (const group of Object.values(sectionValue.items)) {
+      if (group.items.some((itemPath) => itemPath === pathname)) {
+        return sectionKey;
+      }
+    }
+  }
+  return "home"; // fallback
+}
+
+const topLevelSection = resolveTopLevelSection(pathname);
+const sectionnavigationMenu = navigationMenu[topLevelSection];
 
 const docs = await getCollection("docs");
-const sectionMenuConfig = menuConfig[topLevelSection];
-const menu = sectionMenuConfig ? buildMenu(docs, sectionMenuConfig.items) : [];
+const menu = sectionnavigationMenu
+  ? buildMenu(docs, sectionnavigationMenu.items)
+  : [];
 
 const { class: className } = Astro.props;
 ---
@@ -20,12 +34,10 @@ const { class: className } = Astro.props;
 <div
   class={`flex flex-col gap-1 m-0 w-full h-full md:border-r-[1px] border-border ${className}`}
 >
-  <!-- Top-level section links (Home, Guides, etc.) -->
+  <!-- Top-level section links -->
   <div class="p-4 flex flex-col gap-1 border-b-[1px] border-border">
     {
-      Object.entries(menuConfig).map(([sectionKey, sectionValue]) => {
-        const firstGroup = Object.values(sectionValue.items)[0];
-        const firstItem = firstGroup?.items?.[0] ?? "/";
+      Object.entries(navigationMenu).map(([sectionKey, sectionValue]) => {
         const isActive = topLevelSection === sectionKey;
 
         const linkClass = `h-8! ${
@@ -33,13 +45,22 @@ const { class: className } = Astro.props;
             ? "font-bold text-background-base! bg-accent-primary hover:bg-accent-primary/80!"
             : ""
         }`;
+        const pClass = `${
+          isActive
+            ? "text-background-base! font-medium mt-0!"
+            : "font-medium mt-0!"
+        }`;
 
         return (
-          <Link href={firstItem} class={linkClass} key={sectionKey}>
-            <span class="flex items-center gap-2">
+          <Link
+            href={sectionValue.href ?? "/"}
+            class={linkClass}
+            key={sectionKey}
+          >
+            <div class="flex flex-row gap-2 items-center">
               {sectionValue.icon && <Icon name={sectionValue.icon} />}
-              {sectionValue.label ?? sectionKey}
-            </span>
+              <p class={pClass}>{sectionValue.label ?? sectionKey}</p>
+            </div>
           </Link>
         );
       })
@@ -51,10 +72,12 @@ const { class: className } = Astro.props;
     {
       menu.map((section) => (
         <div class="flex flex-col gap-2">
-          <div class="flex flex-row px-4 gap-2 items-center">
-            {section.icon && <Icon name={section.icon} />}
-            <p class="text-text-primary font-medium mt-0!">{section.title}</p>
-          </div>
+          {!section.hideTitle && (
+            <div class="flex flex-row px-4 gap-2 items-center">
+              {section.icon && <Icon name={section.icon} />}
+              <p class="text-text-primary font-medium mt-0!">{section.title}</p>
+            </div>
+          )}
           <div class="flex flex-col gap-1">
             {section.items.map((item) => {
               const isActive = pathname === item.href;

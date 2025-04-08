@@ -1,33 +1,26 @@
 ---
-import { Icon } from "astro-icon/components";
+import Select from "@/components/ui/Select.astro";
+
+const themes = [
+  { label: "Dark", value: "dark" },
+  { label: "light", value: "light" },
+  { label: "ayu-dark", value: "ayu-dark" },
+  { label: "catppuccin-latte", value: "catppuccin-latte" },
+  { label: "cyberpunk-2077", value: "cyberpunk-2077" },
+  { label: "retro-light", value: "retro-light" },
+  { label: "dark-neon", value: "dark-neon" },
+  { label: "digital-noir", value: "digital-noir" },
+];
 ---
 
-<div class="z-30 p-4 flex flex-row-reverse items-center gap-6">
-  <div class="relative">
-    <select
-      id="theme-selector"
-      class="appearance-none bg-background-base text-text-primary border border-border rounded px-4 py-1 cursor-pointer"
-    >
-      <option value="dark" selected>Dark</option>
-      <option value="light">Light</option>
-      <option value="ayu-dark">ayu-dark</option>
-      <option value="cyberpunk">Cyberpunk</option>
-      <option value="solarized-dark">Solarized Dark</option>
-      <option value="solarized-light">Solarized Light</option>
-      <option value="dracula">Dracula</option>
-      <option value="nord">Nord</option>
-      <option value="gruvbox-dark">Gruvbox Dark</option>
-      <option value="gruvbox-light">Gruvbox Light</option>
-    </select>
-    <div
-      class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-text-primary"
-    >
-      <Icon
-        name="arrow-up"
-        class="h-6 w-6 lg:h-5 lg:w-5 transition-transform duration-300 ease-in-out"
-      />
-    </div>
-  </div>
+<div class="z-30 p-4 flex flex-row-reverse items-center gap-8">
+  <Select
+    options={themes}
+    name="theme"
+    size="sm"
+    id="theme-selector"
+    class="w-48!"
+  />
 </div>
 
 <script>

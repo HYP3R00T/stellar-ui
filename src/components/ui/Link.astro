@@ -9,7 +9,7 @@ const { href, class: className, ...rest } = Astro.props as LinkProps;
 ---
 
 <a
-  class={`flex flex-col h-9 px-4 justify-center text-sm rounded-radius transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-text-secondary hover:text-text-primary hover:bg-background-surface/50  ${className}`}
+  class={`flex flex-col py-1 px-4 justify-center text-sm rounded-radius transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-text-secondary hover:text-text-primary hover:bg-background-surface/50  ${className}`}
   href={href}
   {...rest}
 >

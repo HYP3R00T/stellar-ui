@@ -98,3 +98,22 @@ export interface HeadingProps {
         id: string;
     }[];
 }
+
+export interface MenuSectionConfig {
+    icon?: string;
+    hide_section_name?: boolean,
+    items: string[];
+};
+
+export interface TopLevelnavigationMenu {
+    icon?: string;
+    label?: string;
+    href: string;
+    items: {
+        [sectionTitle: string]: MenuSectionConfig;
+    };
+};
+
+export interface GlobalnavigationMenu {
+    [sectionName: string]: TopLevelnavigationMenu;
+};
