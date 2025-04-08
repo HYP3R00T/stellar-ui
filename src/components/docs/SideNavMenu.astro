@@ -4,21 +4,15 @@ import { Icon } from "astro-icon/components";
 import Link from "@/components/ui/Link.astro";
 
 import { buildMenu } from "@/lib/utils";
-import { menuConfig } from "config"; // your top-level menuConfig
+import { menuConfig } from "config";
 
 const pathname: string = new URL(Astro.request.url).pathname;
-
-// Extract the first URL segment.
 const firstSegment = pathname.split("/")[1];
-
-// Check if the first segment exists in menuConfig; if not, default to "home".
 const topLevelSection = menuConfig[firstSegment] ? firstSegment : "home";
 
 const docs = await getCollection("docs");
-
-// Get the config for the current section (like "home", "guides", etc.)
 const sectionMenuConfig = menuConfig[topLevelSection];
-const menu = sectionMenuConfig ? buildMenu(docs, sectionMenuConfig) : [];
+const menu = sectionMenuConfig ? buildMenu(docs, sectionMenuConfig.items) : [];
 
 const { class: className } = Astro.props;
 ---
@@ -26,60 +20,33 @@ const { class: className } = Astro.props;
 <div
   class={`flex flex-col gap-1 m-0 w-full h-full md:border-r-[1px] border-border ${className}`}
 >
+  <!-- Top-level section links (Home, Guides, etc.) -->
   <div class="p-4 flex flex-col gap-1 border-b-[1px] border-border">
-    <Link
-      href="/"
-      class={`h-8! ${
-        topLevelSection === "home"
-          ? "font-bold text-background-base! bg-accent-primary hover:bg-accent-primary/80!"
-          : ""
-      }`}
-    >
-      Home
-    </Link>
-    <Link
-      href="/guides/overview"
-      class={`h-8! ${
-        topLevelSection === "guides"
-          ? "font-bold text-background-base! bg-accent-primary hover:bg-accent-primary/80!"
-          : ""
-      }`}
-    >
-      Guides
-    </Link>
-    <!-- <Link
-      href="/eas"
-      class={`h-8! ${
-        topLevelSection === "eas"
-          ? "font-bold text-background-base! bg-accent-primary hover:text-text-primary!"
-          : ""
-      }`}
-    >
-      EAS
-    </Link>
-    <Link
-      href="/reference"
-      class={`h-8! ${
-        topLevelSection === "reference"
-          ? "font-bold text-background-base! bg-accent-primary hover:text-text-primary!"
-          : ""
-      }`}
-    >
-      Reference
-    </Link>
-    <Link
-      href="/learn"
-      class={`h-8! ${
-        topLevelSection === "learn"
-          ? "font-bold text-background-base! bg-accent-primary hover:text-text-primary!"
-          : ""
-      }`}
-    >
-      Learn
-    </Link> -->
+    {
+      Object.entries(menuConfig).map(([sectionKey, sectionValue]) => {
+        const firstGroup = Object.values(sectionValue.items)[0];
+        const firstItem = firstGroup?.items?.[0] ?? "/";
+        const isActive = topLevelSection === sectionKey;
+
+        const linkClass = `h-8! ${
+          isActive
+            ? "font-bold text-background-base! bg-accent-primary hover:bg-accent-primary/80!"
+            : ""
+        }`;
+
+        return (
+          <Link href={firstItem} class={linkClass} key={sectionKey}>
+            <span class="flex items-center gap-2">
+              {sectionValue.icon && <Icon name={sectionValue.icon} />}
+              {sectionValue.label ?? sectionKey}
+            </span>
+          </Link>
+        );
+      })
+    }
   </div>
 
-  <!-- Side navigation menu based on the current top-level section -->
+  <!-- In-section menu -->
   <div class="flex flex-col gap-4 overflow-y-scroll py-4 pl-4 pr-[12px]">
     {
       menu.map((section) => (
@@ -95,9 +62,6 @@ const { class: className } = Astro.props;
                 ? "text-text-primary! bg-background-surface!"
                 : "text-text-secondary! hover:text-accent-primary! hover:bg-transparent!";
               return (
-                // <a href={item.href} class={`text-sm ${classNameLink}`}>
-                //   {item.title}
-                // </a>
                 <Link
                   href={item.href}
                   class={`h-6! ${classNameLink}`}

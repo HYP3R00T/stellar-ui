@@ -34,43 +34,56 @@ export type MenuSectionConfig = {
     items: string[];
 };
 
-export type GlobalMenuConfig = {
-    [sectionName: string]: {
-        [subsection: string]: MenuSectionConfig;
+export type TopLevelMenuConfig = {
+    icon?: string;
+    label?: string;
+    items: {
+        [sectionTitle: string]: MenuSectionConfig;
     };
+};
+
+export type GlobalMenuConfig = {
+    [sectionName: string]: TopLevelMenuConfig;
 };
 
 export const menuConfig: GlobalMenuConfig = {
     home: {
-        "Get Started": {
-            icon: "discord",
-            items: ["/get-started"],
-        },
-        "Components": {
-            icon: "github",
-            items: [
-                "/components/aspectratio",
-                "/components/badge",
-                "/components/button",
-                "/components/checkbox",
-                "/components/input",
-                "/components/pagination",
-            ],
-        },
+        icon: "github",
+        label: "Home",
+        items: {
+            "Get Started": {
+                icon: "discord",
+                items: ["/get-started"],
+            },
+            "Components": {
+                icon: "github",
+                items: [
+                    "/components/aspectratio",
+                    "/components/badge",
+                    "/components/button",
+                    "/components/checkbox",
+                    "/components/input",
+                    "/components/pagination",
+                ],
+            },
+        }
     },
     guides: {
-        "Overview": {
-            icon: "discord",
-            items: ["/guides/overview", "/guides/overview2"],
+        icon: "close",
+        label: "Guides",
+        items: {
+            "Overview": {
+                icon: "discord",
+                items: ["/guides/overview", "/guides/overview2"],
+            },
+            "Development process": {
+                icon: "github",
+                items: [
+                    "/guides/develop-an-app",
+                    "/guides/configure-app-config",
+                    "/guides/environment-variables",
+                ],
+            },
         },
-        "Development process": {
-            icon: "github",
-            items: [
-                "/guides/develop-an-app",
-                "/guides/configure-app-config",
-                "/guides/environment-variables",
-            ],
-        },
-    },
-    // EAS, Reference, Learn, etc.
+    }
 };

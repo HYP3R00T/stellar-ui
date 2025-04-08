@@ -1,36 +1,8 @@
-import type {
-    HeadingHierarchy,
-    MDHeading,
-} from "@/lib/types";
-
 // Helper function to capitalize the first letter of a string
 export const capitalizeFirstLetter = (str: string) => {
     if (!str) return str;
     return str.charAt(0).toUpperCase() + str.slice(1);
 };
-
-// create headings for ToC
-export function createHeadingHierarchy(headings: MDHeading[]) {
-    const topLevelHeadings: HeadingHierarchy[] = [];
-
-    headings.forEach((heading) => {
-        const h = {
-            ...heading,
-            subheadings: [],
-        };
-
-        if (h.depth >= 2) {
-            topLevelHeadings.push(h);
-        } else {
-            let parent = topLevelHeadings[topLevelHeadings.length - 1];
-            if (parent) {
-                parent.subheadings.push(h);
-            }
-        }
-    });
-
-    return topLevelHeadings;
-}
 
 
 type DocsEntry = {
@@ -52,11 +24,21 @@ type MenuSection = {
     items: MenuLink[];
 };
 
+type SectionGroupConfig = {
+    icon?: string;
+    items: string[];
+};
+
+type SectionConfig = {
+    label?: string;
+    icon?: string;
+    items: Record<string, SectionGroupConfig>;
+};
+
 export function buildMenu(
     docs: DocsEntry[],
-    sectionConfig: Record<string, { icon?: string; items: string[] }>
+    sectionConfig: SectionConfig["items"]
 ): MenuSection[] {
-    // Create a map for fast lookup based on lower-case id (prefixed with a slash)
     const idToEntry = new Map(
         docs.map((entry) => [`/${entry.id.toLowerCase()}`, entry])
     );
@@ -68,7 +50,7 @@ export function buildMenu(
 
         for (const path of items) {
             const entry = idToEntry.get(path.toLowerCase());
-            // Use entry title if available, otherwise derive it from the path.
+
             const title =
                 entry?.data.title ||
                 path.split("/").pop()?.replace(/-/g, " ") ||
@@ -89,4 +71,5 @@ export function buildMenu(
 
     return menu;
 }
+
 
