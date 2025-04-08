@@ -14,7 +14,7 @@ interface HeadingProps {
 }
 
 const { headings } = Astro.props as HeadingProps;
-const hasToC = headings.length > 1;
+const hasToC = headings && headings.length > 1;
 ---
 
 <div class="flex flex-col gap-4 overflow-y-scroll py-4 pl-4 pr-[12px]">
@@ -25,26 +25,65 @@ const hasToC = headings.length > 1;
           <Icon name="github" />
           <p class="text-text-primary font-medium mt-0!">On this Page</p>
         </div>
-        <div class="flex flex-col gap-1 ">
-          {headings.map(
-            (heading: { depth: unknown; slug: unknown; text: unknown }) => {
-              const classNameLink =
-                heading.depth === 2
-                  ? "text-text-primary! bg-background-surface!"
-                  : "text-text-secondary! hover:text-accent-primary! hover:bg-transparent!";
-              return (
-                <Link
-                  href={`#${heading.slug}`}
-                  class={`h-6! ${classNameLink}`}
-                  key={heading.slug}
-                >
-                  {heading.text}
-                </Link>
-              );
-            }
-          )}
+        <div class="flex flex-col gap-1">
+          {headings.map((heading: Heading) => {
+            const classNameLink = heading.depth === 2 ? "pl-4" : "pl-8";
+            return (
+              <Link
+                href={`#${heading.slug}`}
+                class={`h-6!  hover:text-accent-primary! hover:bg-transparent! ${classNameLink} toc-link`}
+                key={heading.slug}
+                data-slug={heading.slug}
+              >
+                {heading.text}
+              </Link>
+            );
+          })}
         </div>
       </div>
     )
   }
 </div>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const tocLinks = document.querySelectorAll(".toc-link");
+    const sections = Array.from(tocLinks).map((link) =>
+      document.querySelector(`#${link.getAttribute("data-slug")}`)
+    );
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const activeSlug = entry.target.id;
+            tocLinks.forEach((link) => {
+              if (link.getAttribute("data-slug") === activeSlug) {
+                link.classList.add(
+                  "text-text-primary!",
+                  "bg-background-surface!"
+                );
+              } else {
+                link.classList.remove(
+                  "text-text-primary!",
+                  "bg-background-surface!"
+                );
+              }
+            });
+          }
+        });
+      },
+      {
+        rootMargin: "-100px 0px -50% 0px", // Adjusts when the section is considered "in view"
+        threshold: 0.1, // Trigger when 10% of the section is visible
+      }
+    );
+
+    sections.forEach((section) => {
+      if (section) observer.observe(section);
+    });
+
+    // Cleanup observer on page unload
+    window.addEventListener("unload", () => observer.disconnect());
+  });
+</script>
