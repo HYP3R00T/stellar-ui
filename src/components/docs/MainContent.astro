@@ -14,10 +14,24 @@ const {
   hide_breadcrumbs,
   headings,
 } = Astro.props as MainContentProps;
+
+import { getEditUrl } from "@/lib/utils";
+const pathname = Astro.url.pathname;
+const editUrl = getEditUrl(pathname);
 ---
 
 <div class="flex w-full flex-col md:pt-10 px-4 md:px-14 max-w-6xl">
-  <h1 class="">{capitalizeFirstLetter(title)}</h1>
+  <div class="">
+    <h1 class="">{capitalizeFirstLetter(title)}</h1>
+    <a
+      href={editUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-sm text-accent-primary hover:underline"
+    >
+      Edit this page on GitHub
+    </a>
+  </div>
   <div class="prose py-10 w-full">
     <slot />
   </div>

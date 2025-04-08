@@ -639,7 +639,7 @@ code {
   @apply text-text-primary leading-loose;
 }
 .prose span {
-  @apply leading-loose;
+  @apply leading-0;
 }
 
 .prose a {
@@ -744,6 +744,8 @@ code {
     counter-increment: step;
     width: 1rem;
     margin-right: 1.5rem;
+    margin-top: 0;
+    padding-top: 0;
     display: inline-block;
     text-align: right;
     color: rgba(115, 138, 148, 0.4);
