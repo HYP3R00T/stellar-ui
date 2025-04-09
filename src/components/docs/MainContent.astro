@@ -2,7 +2,8 @@
 import type { MainContentProps } from "@/lib/types";
 import { capitalizeFirstLetter } from "@/lib/utils";
 import Footer from "@/components/core/Footer.astro";
-import EditOnGitHub from "../ux/EditOnGitHub.astro";
+import EditOnGitHub from "@/components/ux/EditOnGitHub.astro";
+import ViewOnGitHub from "@/components/ux/ViewOnGitHub.astro";
 
 const {
   title,
@@ -20,9 +21,12 @@ const {
 ---
 
 <div class="flex w-full flex-col md:pt-10 px-4 md:px-14 max-w-6xl">
-  <div class="">
+  <div class="flex flex-row justify-between">
     <h1 class="">{capitalizeFirstLetter(title)}</h1>
-    <EditOnGitHub {filePath} />
+    <div class="flex flex-row">
+      <EditOnGitHub {filePath} />
+      <ViewOnGitHub {filePath} />
+    </div>
   </div>
   <div class="prose py-10 w-full">
     <slot />
