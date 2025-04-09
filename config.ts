@@ -3,7 +3,8 @@ import type { GlobalnavigationMenu } from "@/lib/types";
 export const SITE = {
     website: "https://hyperoot.dev",
     author: "Rajesh",
-    repo: "https://github.com/HYP3R00T/v4.hyperoot.dev",
+    repo: "https://github.com/HYP3R00T/stellar-ui",
+    branch: "master",
     title: "Hyperoot",
     description:
         "A portfolio and blog showcasing Rajesh's skills in DevOps, Python, and Cloud.",

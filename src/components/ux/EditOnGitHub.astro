@@ -1,0 +1,10 @@
+---
+import { SITE } from "config";
+import Button from "../ui/Button.astro";
+
+const { filePath } = Astro.props;
+---
+
+<a href={`${SITE.repo}/edit/${SITE.branch}/${filePath}`}>
+  <Button size="icon" variant="ghost">❤️</Button>
+</a>

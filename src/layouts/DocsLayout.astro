@@ -15,7 +15,9 @@ const {
   hide_toc,
   hide_sidenav,
   headings,
-} = Astro.props as DocsLayoutProps;
+  filePath,
+} = Astro.props;
+// } = Astro.props as DocsLayoutProps;
 ---
 
 <CoreLayout
@@ -30,6 +32,7 @@ const {
   hide_toc={hide_toc}
   hide_sidenav={hide_sidenav}
   headings={headings}
+  filePath={filePath}
 >
   <slot />
 </CoreLayout>
