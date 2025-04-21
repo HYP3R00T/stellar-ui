@@ -14,6 +14,8 @@ const {
   draft,
   tags,
   hide_breadcrumbs,
+  hide_edit_on_gitHub,
+  hide_view_on_gitHub,
   headings,
   filePath,
 } = Astro.props;
@@ -24,8 +26,8 @@ const {
   <div class="flex flex-row justify-between">
     <h1 class="">{capitalizeFirstLetter(title)}</h1>
     <div class="flex flex-row">
-      <EditOnGitHub {filePath} />
-      <ViewOnGitHub {filePath} />
+      {!hide_edit_on_gitHub && <EditOnGitHub {filePath} />}
+      {!hide_view_on_gitHub && <ViewOnGitHub {filePath} />}
     </div>
   </div>
   <div class="prose py-10 w-full">
