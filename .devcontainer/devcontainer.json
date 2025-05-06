@@ -1,0 +1,24 @@
+{
+    "name": "DevContainer Template",
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:latest",
+    "features": {},
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "astro-build.astro-vscode",
+                "vunguyentuan.vscode-css-variables",
+                "dbaeumer.vscode-eslint",
+                "unifiedjs.vscode-mdx",
+                "christian-kohler.path-intellisense",
+                "esbenp.prettier-vscode",
+                "bradlc.vscode-tailwindcss",
+                "stivo.tailwind-fold",
+                "redhat.vscode-yaml"
+            ]
+        }
+    },
+    "forwardPorts": [
+        4321
+    ],
+    "postCreateCommand": "bash .devcontainer/scripts/setup.sh"
+}
