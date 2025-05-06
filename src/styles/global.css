@@ -10,29 +10,27 @@
     --text-secondary: hsl(215, 25%, 75%);
     --text-muted: hsl(215, 15%, 58%);
 
-    --accent-primary: hsl(210, 100%, 68%);
+    --accent-blue: hsl(210, 70%, 65%);
     --accent-secondary: hsl(180, 80%, 60%);
 
-    --blob: hsl(210, 100%, 62%);
-    --border: hsl(230, 20%, 25%);
-    --input: hsl(230, 20%, 8%);
-    --focus-ring: hsl(210, 100%, 68%);
-
-    --success: hsl(145, 55%, 52%);
-    --warning: hsl(42, 85%, 58%);
-    --danger: hsl(0, 70%, 60%);
-    --info: hsl(195, 85%, 64%);
+    --accent-purple: hsl(270, 70%, 65%);
+    --accent-blue: hsl(210, 70%, 65%);
+    --accent-cyan: hsl(190, 70%, 65%);
+    --accent-teal: hsl(175, 70%, 65%);
+    --accent-green: hsl(145, 70%, 65%);
+    --accent-yellow: hsl(45, 70%, 65%);
+    --accent-orange: hsl(30, 70%, 65%);
+    --accent-red: hsl(0, 70%, 65%);
 
     --radius: 0.35rem;
 
-    --accent-purple: hsl(270, 70%, 72%);
-    --accent-blue: hsl(210, 100%, 68%);
-    --accent-cyan: hsl(190, 90%, 65%);
-    --accent-teal: hsl(175, 75%, 60%);
-    --accent-green: hsl(145, 55%, 52%);
-    --accent-yellow: hsl(42, 85%, 58%);
-    --accent-orange: hsl(30, 80%, 56%);
-    --accent-red: hsl(0, 70%, 60%);
+    --border: var(--background-elevated);
+    --input: var(--background-surface);
+
+    --success: var(--accent-green);
+    --warning: var(--accent-yellow);
+    --danger: var(--accent-red);
+    --info: var(--accent-blue);
 
     --astro-code-background: var(--background-surface);
     --astro-code-foreground: var(--text-primary);
@@ -56,29 +54,27 @@
     --text-secondary: hsl(215, 25%, 75%);
     --text-muted: hsl(215, 15%, 58%);
 
-    --accent-primary: hsl(210, 100%, 68%);
+    --accent-primary: hsl(210, 70%, 65%);
     --accent-secondary: hsl(180, 80%, 60%);
 
-    --blob: hsl(210, 100%, 62%);
-    --border: hsl(230, 20%, 25%);
-    --input: hsl(230, 20%, 8%);
-    --focus-ring: hsl(210, 100%, 68%);
-
-    --success: hsl(145, 55%, 52%);
-    --warning: hsl(42, 85%, 58%);
-    --danger: hsl(0, 70%, 60%);
-    --info: hsl(195, 85%, 64%);
+    --accent-purple: hsl(270, 70%, 65%);
+    --accent-blue: hsl(210, 70%, 65%);
+    --accent-cyan: hsl(190, 70%, 65%);
+    --accent-teal: hsl(175, 70%, 65%);
+    --accent-green: hsl(145, 70%, 65%);
+    --accent-yellow: hsl(45, 70%, 65%);
+    --accent-orange: hsl(30, 70%, 65%);
+    --accent-red: hsl(0, 70%, 65%);
 
     --radius: 0.35rem;
 
-    --accent-purple: hsl(270, 70%, 72%);
-    --accent-blue: hsl(210, 100%, 68%);
-    --accent-cyan: hsl(190, 90%, 65%);
-    --accent-teal: hsl(175, 75%, 60%);
-    --accent-green: hsl(145, 55%, 52%);
-    --accent-yellow: hsl(42, 85%, 58%);
-    --accent-orange: hsl(30, 80%, 56%);
-    --accent-red: hsl(0, 70%, 60%);
+    --border: var(--background-elevated);
+    --input: var(--background-surface);
+
+    --success: var(--accent-green);
+    --warning: var(--accent-yellow);
+    --danger: var(--accent-red);
+    --info: var(--accent-blue);
 
     --astro-code-background: var(--background-surface);
     --astro-code-foreground: var(--text-primary);
@@ -94,37 +90,17 @@
   }
 
   [data-theme="ayu-dark"] {
-    /* Backgrounds */
     --background-base: hsl(220, 16%, 14%);
     --background-surface: hsl(220, 16%, 18%);
     --background-elevated: hsl(220, 16%, 24%);
 
-    /* Text */
     --text-primary: hsl(42, 30%, 95%);
     --text-secondary: hsl(42, 20%, 75%);
     --text-muted: hsl(42, 15%, 60%);
 
-    /* Accent Colors */
     --accent-primary: hsl(35, 100%, 60%);
     --accent-secondary: hsl(185, 70%, 55%);
 
-    /* Decorative */
-    --blob: hsl(185, 80%, 50%);
-
-    /* UI */
-    --border: hsl(220, 10%, 28%);
-    --input: hsl(220, 10%, 20%);
-    --focus-ring: hsl(35, 100%, 65%);
-
-    /* Status */
-    --success: hsl(150, 45%, 55%);
-    --warning: hsl(42, 100%, 58%);
-    --danger: hsl(0, 70%, 55%);
-    --info: hsl(195, 70%, 60%);
-
-    --radius: 0.4rem;
-
-    /* Code Block Accents (from Ayu-inspired palette) */
     --accent-purple: hsl(265, 65%, 75%);
     --accent-blue: hsl(210, 90%, 70%);
     --accent-cyan: hsl(190, 75%, 65%);
@@ -133,6 +109,16 @@
     --accent-yellow: hsl(42, 100%, 58%);
     --accent-orange: hsl(30, 90%, 60%);
     --accent-red: hsl(0, 70%, 55%);
+
+    --radius: 0.35rem;
+
+    --border: var(--background-elevated);
+    --input: var(--background-surface);
+
+    --success: var(--accent-green);
+    --warning: var(--accent-yellow);
+    --danger: var(--accent-red);
+    --info: var(--accent-blue);
 
     --astro-code-background: var(--background-surface);
     --astro-code-foreground: var(--text-primary);
@@ -148,45 +134,35 @@
   }
 
   [data-theme="light"] {
-    /* Backgrounds */
-    --background-base: hsl(0, 0%, 98%);
-    --background-surface: hsl(220, 20%, 97%);
-    --background-elevated: hsl(220, 20%, 92%);
+    --background-base: hsl(230, 20%, 95%);
+    --background-surface: hsl(230, 20%, 90%);
+    --background-elevated: hsl(230, 20%, 82%);
 
-    /* Text */
-    --text-primary: hsl(230, 30%, 10%);
-    --text-secondary: hsl(230, 20%, 35%);
-    --text-muted: hsl(230, 15%, 55%);
+    --text-primary: hsl(230, 20%, 5%);
+    --text-secondary: hsl(230, 20%, 10%);
+    --text-muted: hsl(230, 20%, 18%);
 
-    /* Accent Colors (deeper tones for contrast) */
     --accent-primary: hsl(210, 100%, 42%);
     --accent-secondary: hsl(180, 80%, 38%);
 
-    /* Blob / Decorative */
-    --blob: hsl(210, 100%, 40%);
-
-    /* UI */
-    --border: hsl(230, 15%, 85%);
-    --input: hsl(230, 15%, 96%);
-    --focus-ring: hsl(210, 100%, 45%);
-
-    /* Status */
-    --success: hsl(145, 55%, 36%);
-    --warning: hsl(42, 85%, 44%);
-    --danger: hsl(0, 70%, 42%);
-    --info: hsl(195, 85%, 44%);
+    --accent-purple: hsl(270, 70%, 50%);
+    --accent-blue: hsl(210, 70%, 50%);
+    --accent-cyan: hsl(190, 70%, 50%);
+    --accent-teal: hsl(175, 70%, 50%);
+    --accent-green: hsl(133, 70%, 50%);
+    --accent-yellow: hsl(42, 70%, 50%);
+    --accent-orange: hsl(30, 70%, 50%);
+    --accent-red: hsl(0, 70%, 50%);
 
     --radius: 0.35rem;
 
-    /* Code Block Accents (richer for better readability) */
-    --accent-purple: hsl(270, 70%, 48%);
-    --accent-blue: hsl(210, 100%, 42%);
-    --accent-cyan: hsl(190, 90%, 40%);
-    --accent-teal: hsl(175, 75%, 38%);
-    --accent-green: hsl(145, 55%, 36%);
-    --accent-yellow: hsl(42, 85%, 44%);
-    --accent-orange: hsl(30, 80%, 42%);
-    --accent-red: hsl(0, 70%, 42%);
+    --border: var(--background-elevated);
+    --input: var(--background-surface);
+
+    --success: var(--accent-green);
+    --warning: var(--accent-yellow);
+    --danger: var(--accent-red);
+    --info: var(--accent-blue);
 
     --astro-code-background: var(--background-surface);
     --astro-code-foreground: var(--text-primary);
@@ -198,108 +174,6 @@
     --astro-code-token-function: var(--accent-purple);
     --astro-code-token-string-expression: var(--accent-green);
     --astro-code-token-punctuation: var(--accent-teal);
-    --astro-code-token-link: var(--accent-red);
-  }
-
-  [data-theme="catppuccin-latte"] {
-    /* Backgrounds */
-    --background-base: hsl(220deg, 23%, 95%);
-    --background-surface: hsl(220deg, 22%, 92%);
-    --background-elevated: hsl(220deg, 21%, 89%);
-
-    /* Text */
-    --text-primary: hsl(234, 16%, 35%);
-    --text-secondary: hsl(233, 13%, 41%);
-    --text-muted: hsl(233, 10%, 47%);
-
-    /* Accent Colors */
-    --accent-primary: hsl(220, 91%, 54%);
-    --accent-secondary: hsl(231, 97%, 72%);
-
-    /* Decorative */
-    --blob: hsl(197, 97%, 46%);
-
-    /* UI */
-    --border: hsl(220, 22%, 92%);
-    --input: hsl(223, 16%, 83%);
-    --focus-ring: hsl(35, 77%, 49%);
-
-    /* Status Colors */
-    --success: hsl(109, 58%, 40%);
-    --warning: hsl(22, 99%, 52%);
-    --danger: hsl(347, 87%, 44%);
-    --info: hsl(183, 74%, 35%);
-
-    --radius: 0.4rem;
-
-    /* Code Block Accents */
-    --accent-purple: hsl(266, 85%, 58%);
-    --accent-pink: hsl(316, 73%, 69%);
-    --accent-cyan: hsl(189, 70%, 42%);
-    --accent-teal: hsl(183, 74%, 35%);
-    --accent-green: hsl(109, 58%, 40%);
-    --accent-yellow: hsl(35, 77%, 49%);
-    --accent-orange: hsl(22, 99%, 52%);
-    --accent-red: hsl(355, 76%, 59%);
-    --accent-rose: hsl(11, 59%, 67%);
-
-    --astro-code-background: var(--background-surface);
-    --astro-code-foreground: var(--text-primary);
-    --astro-code-token-constant: var(--accent-cyan);
-    --astro-code-token-string: var(--accent-yellow);
-    --astro-code-token-comment: var(--text-muted);
-    --astro-code-token-keyword: var(--accent-blue);
-    --astro-code-token-parameter: var(--accent-orange);
-    --astro-code-token-function: var(--accent-purple);
-    --astro-code-token-string-expression: var(--accent-green);
-    --astro-code-token-punctuation: var(--accent-teal);
-    --astro-code-token-link: var(--accent-red);
-  }
-
-  [data-theme="cyberpunk-2077"] {
-    --background-base: hsl(240, 22%, 7%);
-    --background-surface: hsl(240, 22%, 11%);
-    --background-elevated: hsl(240, 20%, 17%);
-
-    --text-primary: hsl(60, 100%, 85%);
-    --text-secondary: hsl(54, 100%, 65%);
-    --text-muted: hsl(54, 100%, 45%);
-
-    --accent-primary: hsl(54, 100%, 52%);
-    --accent-secondary: hsl(185, 100%, 58%);
-
-    --blob: hsl(320, 100%, 58%);
-
-    --border: hsl(240, 15%, 22%);
-    --input: hsl(240, 18%, 14%);
-    --focus-ring: hsl(54, 100%, 58%);
-
-    --success: hsl(135, 100%, 44%);
-    --warning: hsl(14, 100%, 56%);
-    --danger: hsl(0, 100%, 58%);
-    --info: hsl(185, 100%, 58%);
-
-    --radius: 0.5rem;
-
-    --accent-purple: hsl(295, 100%, 68%);
-    --accent-blue: hsl(205, 100%, 65%);
-    --accent-cyan: hsl(185, 100%, 58%);
-    --accent-teal: hsl(170, 100%, 50%);
-    --accent-green: hsl(135, 100%, 44%);
-    --accent-yellow: hsl(14, 100%, 56%);
-    --accent-orange: hsl(20, 100%, 58%);
-    --accent-red: hsl(0, 100%, 58%);
-
-    --astro-code-background: var(--background-surface);
-    --astro-code-foreground: var(--text-primary);
-    --astro-code-token-constant: var(--accent-cyan);
-    --astro-code-token-string: var(--accent-orange);
-    --astro-code-token-comment: var(--text-muted);
-    --astro-code-token-keyword: var(--accent-blue);
-    --astro-code-token-parameter: var(--accent-purple);
-    --astro-code-token-function: var(--accent-green);
-    --astro-code-token-string-expression: var(--accent-teal);
-    --astro-code-token-punctuation: var(--accent-secondary);
     --astro-code-token-link: var(--accent-red);
   }
 
@@ -315,19 +189,6 @@
     --accent-primary: hsl(9, 90%, 50%);
     --accent-secondary: hsl(185, 80%, 40%);
 
-    --blob: hsl(330, 80%, 60%);
-
-    --border: hsl(30, 20%, 65%);
-    --input: hsl(36, 60%, 94%);
-    --focus-ring: hsl(9, 90%, 52%);
-
-    --success: hsl(145, 60%, 40%);
-    --warning: hsl(37, 100%, 46%);
-    --danger: hsl(0, 75%, 48%);
-    --info: hsl(200, 70%, 42%);
-
-    --radius: 0.3rem;
-
     --accent-purple: hsl(285, 65%, 55%);
     --accent-blue: hsl(200, 80%, 45%);
     --accent-cyan: hsl(180, 70%, 42%);
@@ -337,63 +198,26 @@
     --accent-orange: hsl(25, 85%, 50%);
     --accent-red: hsl(0, 75%, 48%);
 
-    --astro-code-background: var(--background-surface);
-    --astro-code-foreground: var(--text-primary);
-    --astro-code-token-constant: var(--accent-cyan);
-    --astro-code-token-string: var(--accent-orange);
-    --astro-code-token-comment: var(--text-muted);
-    --astro-code-token-keyword: var(--accent-purple);
-    --astro-code-token-parameter: var(--accent-blue);
-    --astro-code-token-function: var(--accent-green);
-    --astro-code-token-string-expression: var(--accent-yellow);
-    --astro-code-token-punctuation: var(--accent-secondary);
-    --astro-code-token-link: var(--accent-red);
-  }
+    --radius: 0.35rem;
 
-  [data-theme="dark-neon"] {
-    --background-base: hsl(240, 20%, 8%);
-    --background-surface: hsl(240, 20%, 12%);
-    --background-elevated: hsl(240, 20%, 18%);
+    --border: var(--background-elevated);
+    --input: var(--background-surface);
 
-    --text-primary: hsl(180, 100%, 85%);
-    --text-secondary: hsl(180, 80%, 70%);
-    --text-muted: hsl(180, 60%, 50%);
-
-    --accent-primary: hsl(300, 100%, 60%);
-    --accent-secondary: hsl(190, 100%, 55%);
-
-    --blob: hsl(330, 90%, 60%);
-
-    --border: hsl(240, 15%, 25%);
-    --input: hsl(240, 15%, 18%);
-    --focus-ring: hsl(300, 100%, 65%);
-
-    --success: hsl(140, 80%, 45%);
-    --warning: hsl(40, 100%, 55%);
-    --danger: hsl(0, 90%, 60%);
-    --info: hsl(190, 100%, 55%);
-
-    --radius: 0.5rem;
-
-    --accent-purple: hsl(290, 100%, 70%);
-    --accent-blue: hsl(210, 100%, 65%);
-    --accent-cyan: hsl(185, 100%, 60%);
-    --accent-teal: hsl(170, 100%, 50%);
-    --accent-green: hsl(140, 80%, 45%);
-    --accent-yellow: hsl(40, 100%, 55%);
-    --accent-orange: hsl(20, 100%, 60%);
-    --accent-red: hsl(0, 90%, 60%);
+    --success: var(--accent-green);
+    --warning: var(--accent-yellow);
+    --danger: var(--accent-red);
+    --info: var(--accent-blue);
 
     --astro-code-background: var(--background-surface);
     --astro-code-foreground: var(--text-primary);
     --astro-code-token-constant: var(--accent-cyan);
-    --astro-code-token-string: var(--accent-orange);
+    --astro-code-token-string: var(--accent-yellow);
     --astro-code-token-comment: var(--text-muted);
-    --astro-code-token-keyword: var(--accent-purple);
-    --astro-code-token-parameter: var(--accent-blue);
-    --astro-code-token-function: var(--accent-green);
-    --astro-code-token-string-expression: var(--accent-yellow);
-    --astro-code-token-punctuation: var(--accent-secondary);
+    --astro-code-token-keyword: var(--accent-blue);
+    --astro-code-token-parameter: var(--accent-orange);
+    --astro-code-token-function: var(--accent-purple);
+    --astro-code-token-string-expression: var(--accent-green);
+    --astro-code-token-punctuation: var(--accent-teal);
     --astro-code-token-link: var(--accent-red);
   }
 
@@ -409,19 +233,6 @@
     --accent-primary: hsl(195, 80%, 55%);
     --accent-secondary: hsl(340, 80%, 60%);
 
-    --blob: hsl(220, 100%, 55%);
-
-    --border: hsl(230, 20%, 25%);
-    --input: hsl(230, 20%, 10%);
-    --focus-ring: hsl(195, 80%, 60%);
-
-    --success: hsl(135, 100%, 45%);
-    --warning: hsl(40, 100%, 55%);
-    --danger: hsl(0, 100%, 60%);
-    --info: hsl(195, 100%, 60%);
-
-    --radius: 0.5rem;
-
     --accent-purple: hsl(295, 100%, 68%);
     --accent-blue: hsl(205, 100%, 65%);
     --accent-cyan: hsl(185, 100%, 60%);
@@ -431,63 +242,26 @@
     --accent-orange: hsl(20, 100%, 60%);
     --accent-red: hsl(0, 100%, 60%);
 
-    --astro-code-background: var(--background-surface);
-    --astro-code-foreground: var(--text-primary);
-    --astro-code-token-constant: var(--accent-cyan);
-    --astro-code-token-string: var(--accent-orange);
-    --astro-code-token-comment: var(--text-muted);
-    --astro-code-token-keyword: var(--accent-blue);
-    --astro-code-token-parameter: var(--accent-purple);
-    --astro-code-token-function: var(--accent-green);
-    --astro-code-token-string-expression: var(--accent-yellow);
-    --astro-code-token-punctuation: var(--accent-secondary);
-    --astro-code-token-link: var(--accent-red);
-  }
+    --radius: 0.35rem;
 
-  [data-theme="digital-noir"] {
-    --background-base: hsl(230, 25%, 8%);
-    --background-surface: hsl(230, 25%, 12%);
-    --background-elevated: hsl(230, 25%, 18%);
+    --border: var(--background-elevated);
+    --input: var(--background-surface);
 
-    --text-primary: hsl(210, 20%, 92%);
-    --text-secondary: hsl(210, 15%, 75%);
-    --text-muted: hsl(210, 10%, 60%);
-
-    --accent-primary: hsl(195, 80%, 55%);
-    --accent-secondary: hsl(340, 80%, 60%);
-
-    --blob: hsl(220, 100%, 55%);
-
-    --border: hsl(230, 20%, 25%);
-    --input: hsl(230, 20%, 10%);
-    --focus-ring: hsl(195, 80%, 60%);
-
-    --success: hsl(135, 100%, 45%);
-    --warning: hsl(40, 100%, 55%);
-    --danger: hsl(0, 100%, 60%);
-    --info: hsl(195, 100%, 60%);
-
-    --radius: 0.5rem;
-
-    --accent-purple: hsl(295, 100%, 68%);
-    --accent-blue: hsl(205, 100%, 65%);
-    --accent-cyan: hsl(185, 100%, 60%);
-    --accent-teal: hsl(170, 100%, 55%);
-    --accent-green: hsl(135, 100%, 45%);
-    --accent-yellow: hsl(45, 100%, 55%);
-    --accent-orange: hsl(20, 100%, 60%);
-    --accent-red: hsl(0, 100%, 60%);
+    --success: var(--accent-green);
+    --warning: var(--accent-yellow);
+    --danger: var(--accent-red);
+    --info: var(--accent-blue);
 
     --astro-code-background: var(--background-surface);
     --astro-code-foreground: var(--text-primary);
     --astro-code-token-constant: var(--accent-cyan);
-    --astro-code-token-string: var(--accent-orange);
+    --astro-code-token-string: var(--accent-yellow);
     --astro-code-token-comment: var(--text-muted);
     --astro-code-token-keyword: var(--accent-blue);
-    --astro-code-token-parameter: var(--accent-purple);
-    --astro-code-token-function: var(--accent-green);
-    --astro-code-token-string-expression: var(--accent-yellow);
-    --astro-code-token-punctuation: var(--accent-secondary);
+    --astro-code-token-parameter: var(--accent-orange);
+    --astro-code-token-function: var(--accent-purple);
+    --astro-code-token-string-expression: var(--accent-green);
+    --astro-code-token-punctuation: var(--accent-teal);
     --astro-code-token-link: var(--accent-red);
   }
 }
@@ -502,10 +276,8 @@
   --color-text-muted: var(--text-muted);
   --color-accent-primary: var(--accent-primary);
   --color-accent-secondary: var(--accent-secondary);
-  --color-blob: var(--blob);
   --color-border: var(--border);
   --color-input: var(--input);
-  --color-focus-ring: var(--focus-ring);
   --color-success: var(--success);
   --color-warning: var(--warning);
   --color-danger: var(--danger);
@@ -671,9 +443,9 @@ code {
   @apply text-text-secondary my-4 first:mt-0;
 }
 
-.prose .alert p {
+/* .prose .alert p {
   @apply text-background-base my-0 first:mt-0;
-}
+} */
 
 .prose ul {
   @apply list-disc list-outside my-4;

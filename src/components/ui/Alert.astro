@@ -42,15 +42,14 @@ const usedTitle = title || defaultTitles[variant];
 <div
   class={`alert relative w-full rounded-radius border px-4 py-3
     ${
-      variant === "info"
-        ? "bg-info border-info text-background-base"
-        : variant === "success"
-          ? "bg-success border-success text-background-base"
-          : variant === "warning"
-            ? "bg-warning border-warning text-background-base"
-            : variant === "danger"
-              ? "bg-danger border-danger text-background-base"
-              : "bg-text-muted border-border text-background-base"
+      {
+        info: "bg-info/100 border-info text-background-base",
+        success: "bg-success/100 border-success text-background-base",
+        warning: "bg-warning/100 border-warning text-background-base",
+        danger: "bg-danger/100 border-danger text-background-base",
+        default:
+          "bg-text-secondary/100 border-text-secondary text-background-base",
+      }[variant]
     }
     ${className}`}
   role="alert"
@@ -65,3 +64,15 @@ const usedTitle = title || defaultTitles[variant];
     <slot />
   </div>
 </div>
+
+<style is:global>
+  @reference "@/styles/global.css";
+
+  .prose .alert p {
+    @apply text-inherit my-0 first:mt-0;
+  }
+
+  .prose .alert code {
+    /* @apply text-inherit my-0 first:mt-0; */
+  }
+</style>
