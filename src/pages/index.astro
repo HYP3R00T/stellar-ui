@@ -2,6 +2,10 @@
 import CoreLayout from "@/layouts/CoreLayout.astro";
 
 import Alert from "@/components/ui/Alert.astro";
+import Breadcrumb from "@/components/ui/Breadcrumb/Breadcrumb.astro";
+import BreadcrumbItem from "@/components/ui/Breadcrumb/BreadcrumbItem.astro";
+import BreadcrumbLink from "@/components/ui/Breadcrumb/BreadcrumbLink.astro";
+import BreadcrumbSeparator from "@/components/ui/Breadcrumb/BreadcrumbSeparator.astro";
 ---
 
 <CoreLayout
@@ -14,6 +18,18 @@ import Alert from "@/components/ui/Alert.astro";
     <h1>Something nice</h1>
   </section>
   <section class="space-y-4 w-full">
+    <Breadcrumb>
+      <BreadcrumbItem>
+        <BreadcrumbLink href="/">Home</BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbSeparator />
+      <BreadcrumbItem>
+        <BreadcrumbLink href="/playground">Playground</BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbSeparator />
+      <BreadcrumbItem>Current Page</BreadcrumbItem>
+    </Breadcrumb>
+
     <Alert variant="warning">
       This operation could result in data loss. Proceed with caution!
     </Alert>

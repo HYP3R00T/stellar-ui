@@ -56,3 +56,33 @@ When designing new components, follow these guidelines to ensure consistency and
 7. **Documentation**:
    - Add a corresponding `.mdx` file in the `content/Components/` folder to document the component's usage.
    - Include examples and code snippets in the documentation.
+
+## Guidelines for Writing Documentation for UI/UX Components
+
+When documenting UI/UX components, follow these guidelines to ensure clarity, consistency, and usability:
+
+1. **Structure**:
+   - **Title**: Use a clear and descriptive title for the component.
+   - **Introduction**: Provide a brief overview of the component, including its purpose and use cases.
+   - **Props and Slots**: List all available props and slots with descriptions and default values.
+   - **Usage Examples**: Include code snippets demonstrating common use cases. And add a demo of it as we use mdx for documenting these components.
+   - **Theming**: Explain how the component supports theming and customization.
+   - **Accessibility**: Highlight accessibility features and ARIA attributes.
+   - **Best Practices**: Provide tips for using the component effectively.
+
+2. **Content**:
+   - Use simple and concise language.
+   - Include visuals or screenshots to illustrate the component in use.
+   - Ensure code snippets are properly formatted and easy to copy.
+
+3. **Location**:
+   - Place the documentation in the `content/Components/` folder.
+   - Use the `.mdx` format for rich text and interactive examples.
+
+4. **Consistency**:
+   - Follow the project's naming conventions and styling guidelines.
+   - Use consistent formatting for headings, lists, and code blocks.
+
+5. **Maintenance**:
+   - Update the documentation whenever the component is modified.
+   - Regularly review and improve the documentation for clarity and completeness.

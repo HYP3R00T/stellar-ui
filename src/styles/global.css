@@ -410,6 +410,7 @@ code {
 .prose {
   @apply text-text-primary leading-loose;
 }
+
 .prose span {
   @apply leading-0;
 }

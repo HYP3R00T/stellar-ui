@@ -6,6 +6,6 @@ export interface Props {
 const { ariaLabel = "breadcrumb" } = Astro.props;
 ---
 
-<nav aria-label={ariaLabel}>
+<nav aria-label={ariaLabel} class="flex flex-row items-center">
   <slot />
 </nav>

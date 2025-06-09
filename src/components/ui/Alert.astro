@@ -53,11 +53,15 @@ const usedTitle = title || defaultTitles[variant];
     }
     ${className}`}
   role="alert"
+  aria-live={variant === "danger" || variant === "warning"
+    ? "assertive"
+    : "polite"}
+  aria-label={usedTitle}
   {...rest}
 >
   <div class="flex items-center gap-2">
     {usedIcon && <Icon name={usedIcon} class="h-5 w-5 shrink-0" />}
-    <div class="font-semibold leading-tight">{usedTitle}</div>
+    <div class="font-semibold leading-tight" tabindex="0">{usedTitle}</div>
   </div>
 
   <div class="">
@@ -74,5 +78,10 @@ const usedTitle = title || defaultTitles[variant];
 
   .prose .alert code {
     /* @apply text-inherit my-0 first:mt-0; */
+  }
+
+  .alert:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
   }
 </style>
