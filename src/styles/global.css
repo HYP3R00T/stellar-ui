@@ -2,294 +2,112 @@
 
 @layer base {
   :root {
-    --background-base: hsl(230, 20%, 5%);
-    --background-surface: hsl(230, 20%, 10%);
-    --background-elevated: hsl(230, 20%, 18%);
+    /* Neutrals (backgrounds & text) */
+    --background: hsl(240, 21%, 15%);
+    --surface: hsl(237, 16%, 23%);
+    --elevated: hsl(233, 12%, 39%);
+    --border: hsl(231, 11%, 47%);
 
-    --text-primary: hsl(210, 40%, 97%);
-    --text-secondary: hsl(215, 25%, 75%);
-    --text-muted: hsl(215, 15%, 58%);
+    --text-primary: hsl(226, 64%, 88%);
+    --text-secondary: hsl(227, 35%, 80%);
+    --text-muted: hsl(228, 17%, 64%);
 
-    --accent-blue: hsl(210, 70%, 65%);
-    --accent-secondary: hsl(180, 80%, 60%);
+    /* Accents & Statuses */
+    --blue: hsl(217, 92%, 76%);
+    --red: hsl(343, 81%, 75%);
+    --orange: hsl(23, 92%, 75%);
+    --yellow: hsl(41, 86%, 83%);
+    --green: hsl(115, 54%, 76%);
+    --teal: hsl(170, 57%, 73%);
+    --purple: hsl(267, 84%, 81%);
+    --pink: hsl(316, 72%, 86%);
 
-    --accent-purple: hsl(270, 70%, 65%);
-    --accent-blue: hsl(210, 70%, 65%);
-    --accent-cyan: hsl(190, 70%, 65%);
-    --accent-teal: hsl(175, 70%, 65%);
-    --accent-green: hsl(145, 70%, 65%);
-    --accent-yellow: hsl(45, 70%, 65%);
-    --accent-orange: hsl(30, 70%, 65%);
-    --accent-red: hsl(0, 70%, 65%);
+    /* Accent/semantic roles (alias your palette as needed) */
+    --accent: var(--blue);
+    --success: var(--green);
+    --warning: var(--yellow);
+    --error: var(--red);
 
     --radius: 0.35rem;
 
-    --border: var(--background-elevated);
-    --input: var(--background-surface);
-
-    --success: var(--accent-green);
-    --warning: var(--accent-yellow);
-    --danger: var(--accent-red);
-    --info: var(--accent-blue);
-
-    --astro-code-background: var(--background-surface);
+    --astro-code-background: var(--surface);
     --astro-code-foreground: var(--text-primary);
-    --astro-code-token-constant: var(--accent-cyan);
-    --astro-code-token-string: var(--accent-yellow);
+    --astro-code-token-constant: var(--pink);
+    --astro-code-token-string: var(--yellow);
     --astro-code-token-comment: var(--text-muted);
-    --astro-code-token-keyword: var(--accent-blue);
-    --astro-code-token-parameter: var(--accent-orange);
-    --astro-code-token-function: var(--accent-purple);
-    --astro-code-token-string-expression: var(--accent-green);
-    --astro-code-token-punctuation: var(--accent-teal);
-    --astro-code-token-link: var(--accent-red);
+    --astro-code-token-keyword: var(--blue);
+    --astro-code-token-parameter: var(--orange);
+    --astro-code-token-function: var(--purple);
+    --astro-code-token-string-expression: var(--green);
+    --astro-code-token-punctuation: var(--teal);
+    --astro-code-token-link: var(--red);
   }
 
   [data-theme="dark"] {
-    --background-base: hsl(230, 20%, 5%);
-    --background-surface: hsl(230, 20%, 10%);
-    --background-elevated: hsl(230, 20%, 18%);
+    /* Neutrals (backgrounds & text) */
+    --background: hsl(240, 21%, 15%);
+    --surface: hsl(237, 16%, 23%);
+    --elevated: hsl(233, 12%, 39%);
+    --border: hsl(231, 11%, 47%);
 
-    --text-primary: hsl(210, 40%, 97%);
-    --text-secondary: hsl(215, 25%, 75%);
-    --text-muted: hsl(215, 15%, 58%);
+    --text-primary: hsl(226, 64%, 88%);
+    --text-secondary: hsl(227, 35%, 80%);
+    --text-muted: hsl(228, 17%, 64%);
 
-    --accent-primary: hsl(210, 70%, 65%);
-    --accent-secondary: hsl(180, 80%, 60%);
+    /* Accents & Statuses */
+    --blue: hsl(217, 92%, 76%);
+    --red: hsl(343, 81%, 75%);
+    --orange: hsl(23, 92%, 75%);
+    --yellow: hsl(41, 86%, 83%);
+    --green: hsl(115, 54%, 76%);
+    --teal: hsl(170, 57%, 73%);
+    --purple: hsl(267, 84%, 81%);
+    --pink: hsl(316, 72%, 86%);
 
-    --accent-purple: hsl(270, 70%, 65%);
-    --accent-blue: hsl(210, 70%, 65%);
-    --accent-cyan: hsl(190, 70%, 65%);
-    --accent-teal: hsl(175, 70%, 65%);
-    --accent-green: hsl(145, 70%, 65%);
-    --accent-yellow: hsl(45, 70%, 65%);
-    --accent-orange: hsl(30, 70%, 65%);
-    --accent-red: hsl(0, 70%, 65%);
-
-    --radius: 0.35rem;
-
-    --border: var(--background-elevated);
-    --input: var(--background-surface);
-
-    --success: var(--accent-green);
-    --warning: var(--accent-yellow);
-    --danger: var(--accent-red);
-    --info: var(--accent-blue);
-
-    --astro-code-background: var(--background-surface);
-    --astro-code-foreground: var(--text-primary);
-    --astro-code-token-constant: var(--accent-cyan);
-    --astro-code-token-string: var(--accent-yellow);
-    --astro-code-token-comment: var(--text-muted);
-    --astro-code-token-keyword: var(--accent-blue);
-    --astro-code-token-parameter: var(--accent-orange);
-    --astro-code-token-function: var(--accent-purple);
-    --astro-code-token-string-expression: var(--accent-green);
-    --astro-code-token-punctuation: var(--accent-teal);
-    --astro-code-token-link: var(--accent-red);
-  }
-
-  [data-theme="ayu-dark"] {
-    --background-base: hsl(220, 16%, 14%);
-    --background-surface: hsl(220, 16%, 18%);
-    --background-elevated: hsl(220, 16%, 24%);
-
-    --text-primary: hsl(42, 30%, 95%);
-    --text-secondary: hsl(42, 20%, 75%);
-    --text-muted: hsl(42, 15%, 60%);
-
-    --accent-primary: hsl(35, 100%, 60%);
-    --accent-secondary: hsl(185, 70%, 55%);
-
-    --accent-purple: hsl(265, 65%, 75%);
-    --accent-blue: hsl(210, 90%, 70%);
-    --accent-cyan: hsl(190, 75%, 65%);
-    --accent-teal: hsl(175, 65%, 60%);
-    --accent-green: hsl(130, 45%, 55%);
-    --accent-yellow: hsl(42, 100%, 58%);
-    --accent-orange: hsl(30, 90%, 60%);
-    --accent-red: hsl(0, 70%, 55%);
+    /* Accent/semantic roles (alias your palette as needed) */
+    --accent: var(--blue);
+    --success: var(--green);
+    --warning: var(--yellow);
+    --error: var(--red);
 
     --radius: 0.35rem;
 
-    --border: var(--background-elevated);
-    --input: var(--background-surface);
-
-    --success: var(--accent-green);
-    --warning: var(--accent-yellow);
-    --danger: var(--accent-red);
-    --info: var(--accent-blue);
-
-    --astro-code-background: var(--background-surface);
+    --astro-code-background: var(--surface);
     --astro-code-foreground: var(--text-primary);
-    --astro-code-token-constant: var(--accent-cyan);
-    --astro-code-token-string: var(--accent-yellow);
+    --astro-code-token-constant: var(--pink);
+    --astro-code-token-string: var(--yellow);
     --astro-code-token-comment: var(--text-muted);
-    --astro-code-token-keyword: var(--accent-blue);
-    --astro-code-token-parameter: var(--accent-orange);
-    --astro-code-token-function: var(--accent-purple);
-    --astro-code-token-string-expression: var(--accent-green);
-    --astro-code-token-punctuation: var(--accent-teal);
-    --astro-code-token-link: var(--accent-red);
-  }
-
-  [data-theme="light"] {
-    --background-base: hsl(230, 20%, 95%);
-    --background-surface: hsl(230, 20%, 90%);
-    --background-elevated: hsl(230, 20%, 82%);
-
-    --text-primary: hsl(230, 20%, 5%);
-    --text-secondary: hsl(230, 20%, 10%);
-    --text-muted: hsl(230, 20%, 18%);
-
-    --accent-primary: hsl(210, 100%, 42%);
-    --accent-secondary: hsl(180, 80%, 38%);
-
-    --accent-purple: hsl(270, 70%, 50%);
-    --accent-blue: hsl(210, 70%, 50%);
-    --accent-cyan: hsl(190, 70%, 50%);
-    --accent-teal: hsl(175, 70%, 50%);
-    --accent-green: hsl(133, 70%, 50%);
-    --accent-yellow: hsl(42, 70%, 50%);
-    --accent-orange: hsl(30, 70%, 50%);
-    --accent-red: hsl(0, 70%, 50%);
-
-    --radius: 0.35rem;
-
-    --border: var(--background-elevated);
-    --input: var(--background-surface);
-
-    --success: var(--accent-green);
-    --warning: var(--accent-yellow);
-    --danger: var(--accent-red);
-    --info: var(--accent-blue);
-
-    --astro-code-background: var(--background-surface);
-    --astro-code-foreground: var(--text-primary);
-    --astro-code-token-constant: var(--accent-cyan);
-    --astro-code-token-string: var(--accent-yellow);
-    --astro-code-token-comment: var(--text-muted);
-    --astro-code-token-keyword: var(--accent-blue);
-    --astro-code-token-parameter: var(--accent-orange);
-    --astro-code-token-function: var(--accent-purple);
-    --astro-code-token-string-expression: var(--accent-green);
-    --astro-code-token-punctuation: var(--accent-teal);
-    --astro-code-token-link: var(--accent-red);
-  }
-
-  [data-theme="retro-light"] {
-    --background-base: hsl(45, 100%, 97%);
-    --background-surface: hsl(42, 94%, 91%);
-    --background-elevated: hsl(40, 90%, 86%);
-
-    --text-primary: hsl(24, 30%, 15%);
-    --text-secondary: hsl(24, 25%, 30%);
-    --text-muted: hsl(24, 20%, 45%);
-
-    --accent-primary: hsl(9, 90%, 50%);
-    --accent-secondary: hsl(185, 80%, 40%);
-
-    --accent-purple: hsl(285, 65%, 55%);
-    --accent-blue: hsl(200, 80%, 45%);
-    --accent-cyan: hsl(180, 70%, 42%);
-    --accent-teal: hsl(165, 60%, 38%);
-    --accent-green: hsl(145, 60%, 40%);
-    --accent-yellow: hsl(42, 100%, 50%);
-    --accent-orange: hsl(25, 85%, 50%);
-    --accent-red: hsl(0, 75%, 48%);
-
-    --radius: 0.35rem;
-
-    --border: var(--background-elevated);
-    --input: var(--background-surface);
-
-    --success: var(--accent-green);
-    --warning: var(--accent-yellow);
-    --danger: var(--accent-red);
-    --info: var(--accent-blue);
-
-    --astro-code-background: var(--background-surface);
-    --astro-code-foreground: var(--text-primary);
-    --astro-code-token-constant: var(--accent-cyan);
-    --astro-code-token-string: var(--accent-yellow);
-    --astro-code-token-comment: var(--text-muted);
-    --astro-code-token-keyword: var(--accent-blue);
-    --astro-code-token-parameter: var(--accent-orange);
-    --astro-code-token-function: var(--accent-purple);
-    --astro-code-token-string-expression: var(--accent-green);
-    --astro-code-token-punctuation: var(--accent-teal);
-    --astro-code-token-link: var(--accent-red);
-  }
-
-  [data-theme="digital-noir"] {
-    --background-base: hsl(230, 25%, 8%);
-    --background-surface: hsl(230, 25%, 12%);
-    --background-elevated: hsl(230, 25%, 18%);
-
-    --text-primary: hsl(210, 20%, 92%);
-    --text-secondary: hsl(210, 15%, 75%);
-    --text-muted: hsl(210, 10%, 60%);
-
-    --accent-primary: hsl(195, 80%, 55%);
-    --accent-secondary: hsl(340, 80%, 60%);
-
-    --accent-purple: hsl(295, 100%, 68%);
-    --accent-blue: hsl(205, 100%, 65%);
-    --accent-cyan: hsl(185, 100%, 60%);
-    --accent-teal: hsl(170, 100%, 55%);
-    --accent-green: hsl(135, 100%, 45%);
-    --accent-yellow: hsl(45, 100%, 55%);
-    --accent-orange: hsl(20, 100%, 60%);
-    --accent-red: hsl(0, 100%, 60%);
-
-    --radius: 0.35rem;
-
-    --border: var(--background-elevated);
-    --input: var(--background-surface);
-
-    --success: var(--accent-green);
-    --warning: var(--accent-yellow);
-    --danger: var(--accent-red);
-    --info: var(--accent-blue);
-
-    --astro-code-background: var(--background-surface);
-    --astro-code-foreground: var(--text-primary);
-    --astro-code-token-constant: var(--accent-cyan);
-    --astro-code-token-string: var(--accent-yellow);
-    --astro-code-token-comment: var(--text-muted);
-    --astro-code-token-keyword: var(--accent-blue);
-    --astro-code-token-parameter: var(--accent-orange);
-    --astro-code-token-function: var(--accent-purple);
-    --astro-code-token-string-expression: var(--accent-green);
-    --astro-code-token-punctuation: var(--accent-teal);
-    --astro-code-token-link: var(--accent-red);
+    --astro-code-token-keyword: var(--blue);
+    --astro-code-token-parameter: var(--orange);
+    --astro-code-token-function: var(--purple);
+    --astro-code-token-string-expression: var(--green);
+    --astro-code-token-punctuation: var(--teal);
+    --astro-code-token-link: var(--red);
   }
 }
 
 @theme {
   --color-*: initial;
-  --color-background-base: var(--background-base);
-  --color-background-surface: var(--background-surface);
-  --color-background-elevated: var(--background-elevated);
+
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-elevated: var(--elevated);
+  --color-border: var(--border);
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
-  --color-accent-primary: var(--accent-primary);
-  --color-accent-secondary: var(--accent-secondary);
-  --color-border: var(--border);
-  --color-input: var(--input);
+  --color-blue: var(--blue);
+  --color-red: var(--red);
+  --color-orange: var(--orange);
+  --color-yellow: var(--yellow);
+  --color-green: var(--green);
+  --color-teal: var(--teal);
+  --color-purple: var(--purple);
+  --color-pink: var(--pink);
+  --color-accent: var(--accent);
   --color-success: var(--success);
   --color-warning: var(--warning);
-  --color-danger: var(--danger);
-  --color-info: var(--info);
-  --color-accent-purple: var(--accent-purple);
-  --color-accent-blue: var(--accent-blue);
-  --color-accent-cyan: var(--accent-cyan);
-  --color-accent-teal: var(--accent-teal);
-  --color-accent-green: var(--accent-green);
-  --color-accent-yellow: var(--accent-yellow);
-  --color-accent-orange: var(--accent-orange);
-  --color-accent-red: var(--accent-red);
+  --color-error: var(--error);
 
   --radius-radius: var(--radius);
   --radius-lg: calc(var(--radius) + 3px);
@@ -306,7 +124,7 @@
   }
 
   body {
-    @apply bg-background-base text-text-primary leading-relaxed antialiased;
+    @apply bg-background text-text-primary leading-relaxed antialiased;
   }
 
   h1 {
@@ -335,7 +153,7 @@
   }
 
   a {
-    @apply no-underline text-accent-blue;
+    @apply no-underline text-blue;
   }
 
   ul {
@@ -347,7 +165,7 @@
   }
 
   blockquote {
-    @apply border-l-4 border-accent-primary pl-5 italic text-text-secondary bg-background-surface py-3 rounded-radius;
+    @apply border-l-4 border-accent pl-5 italic text-text-secondary bg-surface py-3 rounded-radius;
   }
 
   hr {
@@ -355,11 +173,11 @@
   }
 
   pre {
-    @apply bg-background-surface text-text-primary p-4 rounded-radius overflow-x-auto;
+    @apply bg-surface text-text-primary p-4 rounded-radius overflow-x-auto;
   }
 
   code {
-    @apply bg-background-surface px-1.5 py-0.5 rounded text-accent-blue font-mono text-sm;
+    @apply bg-surface px-1.5 py-0.5 rounded text-blue font-mono text-sm;
   }
 
   pre code {
@@ -370,7 +188,7 @@
 /* ===== selection ===== */
 
 ::selection {
-  @apply bg-accent-primary text-background-base;
+  @apply bg-accent text-background;
 }
 
 /* ===== scrollbar ===== */
@@ -387,18 +205,18 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  @apply bg-background-elevated rounded;
+  @apply bg-elevated rounded;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-accent-primary;
+  @apply bg-accent;
 }
 
 /* ===== codeblock ===== */
 
 .astro-code {
-  @apply p-4 mt-2 hover:bg-accent-primary/80 hover:text-text-primary rounded-lg;
+  @apply p-4 mt-2 hover:bg-accent/80 hover:text-text-primary rounded-lg;
 }
 
 code {
@@ -416,7 +234,7 @@ code {
 }
 
 .prose a {
-  @apply text-accent-blue hover:text-accent-blue/80 underline underline-offset-4 decoration-dashed transition-colors decoration-1;
+  @apply text-blue hover:text-blue/80 underline underline-offset-4 decoration-dashed transition-colors decoration-1;
 }
 
 .prose h1 {
@@ -445,7 +263,7 @@ code {
 }
 
 /* .prose .alert p {
-  @apply text-background-base my-0 first:mt-0;
+  @apply text-background my-0 first:mt-0;
 } */
 
 .prose ul {
@@ -461,15 +279,15 @@ code {
 }
 
 .prose blockquote {
-  @apply border-l-4 border-accent-blue pl-6 italic text-text-secondary bg-background-surface py-3 rounded-radius;
+  @apply border-l-4 border-blue pl-6 italic text-text-secondary bg-surface py-3 rounded-radius;
 }
 
 .prose pre {
-  @apply bg-background-surface text-text-primary p-4 mb-4 rounded-lg overflow-x-auto;
+  @apply bg-surface text-text-primary p-4 mb-4 rounded-lg overflow-x-auto;
 }
 
 .prose code {
-  @apply bg-background-surface px-1.5 py-0.5 rounded text-accent-blue font-mono text-sm;
+  @apply bg-surface px-1.5 py-0.5 rounded text-blue font-mono text-sm;
 }
 
 .prose pre code {
@@ -486,11 +304,11 @@ code {
 }
 
 .prose th {
-  @apply bg-background-surface text-text-secondary font-bold uppercase tracking-wide;
+  @apply bg-surface text-text-secondary font-bold uppercase tracking-wide;
 }
 
 .prose tr:nth-child(even) {
-  @apply bg-background-surface;
+  @apply bg-surface;
 }
 
 .prose img {
@@ -527,6 +345,6 @@ code {
 
 @layer utilities {
   .special-text {
-    @apply bg-gradient-to-tl from-accent-primary to-accent-secondary bg-clip-text text-transparent;
+    @apply bg-gradient-to-tl from-accent to-accent bg-clip-text text-transparent;
   }
 }
