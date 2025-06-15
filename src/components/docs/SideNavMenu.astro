@@ -41,14 +41,10 @@ const { class: className } = Astro.props;
         const isActive = topLevelSection === sectionKey;
 
         const linkClass = `h-8! ${
-          isActive
-            ? "font-bold text-background-base! bg-accent-blue hover:bg-accent-blue!"
-            : ""
+          isActive ? "font-bold text-background! bg-blue hover:bg-blue!" : ""
         }`;
         const pClass = `${
-          isActive
-            ? "text-background-base! font-medium mt-0!"
-            : "font-medium mt-0!"
+          isActive ? "text-background! font-medium mt-0!" : "font-medium mt-0!"
         }`;
 
         return (
@@ -83,7 +79,7 @@ const { class: className } = Astro.props;
               const isActive = pathname === item.href;
               const classNameLink = isActive
                 ? "text-text-primary! bg-background-surface!"
-                : "text-text-secondary! hover:text-accent-primary! hover:bg-transparent!";
+                : "text-text-secondary! hover:text-accent! hover:bg-transparent!";
               return (
                 <Link
                   href={item.href}

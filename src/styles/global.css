@@ -3,24 +3,25 @@
 @layer base {
   :root {
     /* Neutrals (backgrounds & text) */
-    --background: hsl(240, 21%, 15%);
-    --surface: hsl(237, 16%, 23%);
-    --elevated: hsl(233, 12%, 39%);
-    --border: hsl(231, 11%, 47%);
+    --background: hsl(240deg, 21%, 15%);
+    --surface: hsl(237deg, 16%, 23%);
+    --elevated: hsl(233deg, 12%, 39%);
+    --border: hsl(231deg, 11%, 47%);
 
-    --text-primary: hsl(226, 64%, 88%);
-    --text-secondary: hsl(227, 35%, 80%);
-    --text-muted: hsl(228, 17%, 64%);
+    --text-primary: hsl(226deg, 64%, 88%);
+    --text-secondary: hsl(227deg, 35%, 80%);
+    --text-muted: hsl(228deg, 17%, 64%);
+    --text-inverted: hsl(240deg, 21%, 15%);
 
     /* Accents & Statuses */
-    --blue: hsl(217, 92%, 76%);
-    --red: hsl(343, 81%, 75%);
-    --orange: hsl(23, 92%, 75%);
-    --yellow: hsl(41, 86%, 83%);
-    --green: hsl(115, 54%, 76%);
-    --teal: hsl(170, 57%, 73%);
-    --purple: hsl(267, 84%, 81%);
-    --pink: hsl(316, 72%, 86%);
+    --blue: hsl(217deg, 92%, 76%);
+    --red: hsl(343deg, 81%, 75%);
+    --orange: hsl(23deg, 92%, 75%);
+    --yellow: hsl(41deg, 86%, 83%);
+    --green: hsl(115deg, 54%, 76%);
+    --teal: hsl(170deg, 57%, 73%);
+    --purple: hsl(267deg, 84%, 81%);
+    --pink: hsl(316deg, 72%, 86%);
 
     /* Accent/semantic roles (alias your palette as needed) */
     --accent: var(--blue);
@@ -45,24 +46,68 @@
 
   [data-theme="dark"] {
     /* Neutrals (backgrounds & text) */
-    --background: hsl(240, 21%, 15%);
-    --surface: hsl(237, 16%, 23%);
-    --elevated: hsl(233, 12%, 39%);
-    --border: hsl(231, 11%, 47%);
+    --background: hsl(240deg, 21%, 15%);
+    --surface: hsl(237deg, 16%, 23%);
+    --elevated: hsl(233deg, 12%, 39%);
+    --border: hsl(231deg, 11%, 47%);
 
-    --text-primary: hsl(226, 64%, 88%);
-    --text-secondary: hsl(227, 35%, 80%);
-    --text-muted: hsl(228, 17%, 64%);
+    --text-primary: hsl(226deg, 64%, 88%);
+    --text-secondary: hsl(227deg, 35%, 80%);
+    --text-muted: hsl(228deg, 17%, 64%);
+    --text-inverted: hsl(240deg, 21%, 15%);
 
     /* Accents & Statuses */
-    --blue: hsl(217, 92%, 76%);
-    --red: hsl(343, 81%, 75%);
-    --orange: hsl(23, 92%, 75%);
-    --yellow: hsl(41, 86%, 83%);
-    --green: hsl(115, 54%, 76%);
-    --teal: hsl(170, 57%, 73%);
-    --purple: hsl(267, 84%, 81%);
-    --pink: hsl(316, 72%, 86%);
+    --blue: hsl(217deg, 92%, 76%);
+    --red: hsl(343deg, 81%, 75%);
+    --orange: hsl(23deg, 92%, 75%);
+    --yellow: hsl(41deg, 86%, 83%);
+    --green: hsl(115deg, 54%, 76%);
+    --teal: hsl(170deg, 57%, 73%);
+    --purple: hsl(267deg, 84%, 81%);
+    --pink: hsl(316deg, 72%, 86%);
+
+    /* Accent/semantic roles (alias your palette as needed) */
+    --accent: var(--blue);
+    --success: var(--green);
+    --warning: var(--yellow);
+    --error: var(--red);
+
+    --radius: 0.35rem;
+
+    --astro-code-background: var(--surface);
+    --astro-code-foreground: var(--text-primary);
+    --astro-code-token-constant: var(--purple);
+    --astro-code-token-string: var(--text-primary);
+    --astro-code-token-comment: var(--text-muted);
+    --astro-code-token-keyword: var(--purple);
+    --astro-code-token-parameter: var(--orange);
+    --astro-code-token-function: var(--yellow);
+    --astro-code-token-string-expression: var(--blue);
+    --astro-code-token-punctuation: var(--teal);
+    --astro-code-token-link: var(--red);
+  }
+
+  [data-theme="light"] {
+    /* Neutrals (backgrounds & text) */
+    --background: hsl(220deg, 23%, 95%);
+    --surface: hsl(220deg, 22%, 92%);
+    --elevated: hsl(225deg, 14%, 77%);
+    --border: hsl(228deg, 11%, 65%);
+
+    --text-primary: hsl(234deg, 16%, 35%);
+    --text-secondary: hsl(233deg, 13%, 41%);
+    --text-muted: hsl(233deg, 10%, 47%);
+    --text-inverted: hsl(220deg, 23%, 95%);
+
+    /* Accents & Statuses (hues matched to catppuccin latte) */
+    --blue: hsl(220deg, 91%, 54%);
+    --red: hsl(347deg, 87%, 44%);
+    --orange: hsl(22deg, 99%, 52%);
+    --yellow: hsl(35deg, 77%, 49%);
+    --green: hsl(109deg, 58%, 40%);
+    --teal: hsl(183deg, 74%, 35%);
+    --purple: hsl(266deg, 85%, 58%);
+    --pink: hsl(316deg, 73%, 69%);
 
     /* Accent/semantic roles (alias your palette as needed) */
     --accent: var(--blue);
@@ -96,6 +141,7 @@
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
+  --color-text-inverted: var(--text-inverted);
   --color-blue: var(--blue);
   --color-red: var(--red);
   --color-orange: var(--orange);

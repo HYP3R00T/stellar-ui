@@ -4,6 +4,27 @@ title: Authoring Content in Markdown
 
 CelestialDocs supports the full range of Markdown syntax in `.markdown` files as well as frontmatter YAML to define metadata such as a tilte and description.
 
+```astro
+---
+interface Props {
+  href: string;
+  external?: boolean;
+  muted?: boolean;
+}
+
+const { href, external = false, muted = false } = Astro.props;
+---
+
+<a href={href} class:list={[`${muted ? "muted" : ""}`]}>
+  <slot />{external ? <span class="external">&#x2197;</span> : ""}
+</a>
+
+<style lang="scss">
+  ...
+</style>
+```
+
+
 ## Frontmatter
 
 You can modify individual pages in CelestialDocs by setting values in their fromtmatter. Frontmetter is set at the top of your files between `---` separators.

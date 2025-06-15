@@ -43,20 +43,22 @@ export const navigationMenu: GlobalnavigationMenu = {
         hide_section_name: true,
         items: ["/getting-started"],
       },
-      Guides: {
+      "Guides": {
         icon: "github",
+        hide_section_name: false,
         items: [
-          "/guides/authoring-content-in-md",
-          "/guides/authoring-content-in-mdx",
-          "/guides/breadcrumbs",
-          "/guides/pages",
-          "/guides/sidebar-navigation",
-          "/guides/site-search",
-          "/guides/table-of-contents",
+            "/guides/authoring-content-in-md",
+            "/guides/authoring-content-in-mdx",
+            "/guides/breadcrumbs",
+            "/guides/pages",
+            "/guides/sidebar-navigation",
+            "/guides/site-search",
+            "/guides/table-of-contents",
         ],
-      },
-      Reference: {
+    },
+    "Reference": {
         icon: "discord",
+        hide_section_name: false,
         items: ["/reference/configuration-ref", "/reference/frontmatter-ref"],
       },
     },
@@ -66,7 +68,7 @@ export const navigationMenu: GlobalnavigationMenu = {
     label: "User Interface",
     href: "/components/alert",
     items: {
-      Components: {
+      "Components": {
         icon: "github",
         hide_section_name: false,
         items: [

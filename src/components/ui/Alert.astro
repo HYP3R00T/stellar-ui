@@ -2,58 +2,96 @@
 import type { HTMLAttributes } from "astro/types";
 import { Icon } from "astro-icon/components";
 
-type Variant = "default" | "info" | "success" | "warning" | "danger";
+// Color palette
+type Color =
+  | "blue"
+  | "red"
+  | "orange"
+  | "yellow"
+  | "green"
+  | "teal"
+  | "purple"
+  | "pink"
+  | "gray";
+
+type Variant = "solid" | "outline";
 
 interface AlertProps extends HTMLAttributes<"div"> {
   variant?: Variant;
+  color?: Color;
   title?: string;
   icon?: string;
   class?: string;
 }
 
 const {
-  variant = "default",
+  variant = "solid",
+  color = "blue",
   title,
   icon,
   class: className,
   ...rest
 } = Astro.props as AlertProps;
 
-const variantIcons: Record<Variant, string> = {
-  info: "info",
-  success: "check",
-  warning: "warning",
-  danger: "zap",
-  default: "checklist",
+const colorIcons: Record<Color, string> = {
+  blue: "info",
+  red: "zap",
+  orange: "warning",
+  yellow: "warning",
+  green: "check",
+  teal: "info",
+  purple: "info",
+  pink: "info",
+  gray: "checklist",
 };
 
-const defaultTitles: Record<Variant, string> = {
-  info: "Info",
-  success: "Success",
-  warning: "Warning",
-  danger: "Danger",
-  default: "Notice",
+const defaultTitles: Record<Color, string> = {
+  blue: "Info",
+  red: "Danger",
+  orange: "Notice",
+  yellow: "Warning",
+  green: "Success",
+  teal: "Info",
+  purple: "Info",
+  pink: "Info",
+  gray: "Notice",
 };
 
-const usedIcon = icon || variantIcons[variant];
-const usedTitle = title || defaultTitles[variant];
+const usedIcon = icon || colorIcons[color];
+const usedTitle = title || defaultTitles[color];
 ---
 
 <div
-  class={`alert relative w-full rounded-radius border px-4 py-3
+  class={`alert relative w-full rounded-radius border px-4 py-3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[--color-focus]
     ${
-      {
-        info: "bg-info/100 border-info text-background-base",
-        success: "bg-success/100 border-success text-background-base",
-        warning: "bg-warning/100 border-warning text-background-base",
-        danger: "bg-danger/100 border-danger text-background-base",
-        default:
-          "bg-text-secondary/100 border-text-secondary text-background-base",
-      }[variant]
+      variant === "solid"
+        ? {
+            blue: "bg-blue/100 border-blue text-background",
+            red: "bg-red/100 border-red text-background",
+            orange: "bg-orange/100 border-orange text-background",
+            yellow: "bg-yellow/100 border-yellow text-background",
+            green: "bg-green/100 border-green text-background",
+            teal: "bg-teal/100 border-teal text-background",
+            purple: "bg-purple/100 border-purple text-background",
+            pink: "bg-pink/100 border-pink text-background",
+            gray: "bg-text-secondary/100 border-text-secondary text-background",
+          }[color]
+        : {
+            blue: "bg-transparent border-blue text-blue/100",
+            red: "bg-transparent border-red text-red/100",
+            orange: "bg-transparent border-orange text-orange/100",
+            yellow: "bg-transparent border-yellow text-yellow/100",
+            green: "bg-transparent border-green text-green/100",
+            teal: "bg-transparent border-teal text-teal/100",
+            purple: "bg-transparent border-purple text-purple/100",
+            pink: "bg-transparent border-pink text-pink/100",
+            gray: "bg-transparent border-text-secondary text-text-secondary",
+          }[color]
     }
-    ${className}`}
+    ${className ?? ""}
+  `}
   role="alert"
-  aria-live={variant === "danger" || variant === "warning"
+  aria-live={["red", "orange", "yellow"].includes(color)
     ? "assertive"
     : "polite"}
   aria-label={usedTitle}
@@ -63,8 +101,7 @@ const usedTitle = title || defaultTitles[variant];
     {usedIcon && <Icon name={usedIcon} class="h-5 w-5 shrink-0" />}
     <div class="font-semibold leading-tight" tabindex="0">{usedTitle}</div>
   </div>
-
-  <div class="">
+  <div>
     <slot />
   </div>
 </div>
@@ -74,10 +111,6 @@ const usedTitle = title || defaultTitles[variant];
 
   .prose .alert p {
     @apply text-inherit my-0 first:mt-0;
-  }
-
-  .prose .alert code {
-    /* @apply text-inherit my-0 first:mt-0; */
   }
 
   .alert:focus-visible {

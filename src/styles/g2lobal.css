@@ -1,0 +1,532 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background-base: hsl(230, 20%, 5%);
+    --background-surface: hsl(230, 20%, 10%);
+    --elevated: hsl(230, 20%, 18%);
+
+    --text-primary: hsl(210, 40%, 97%);
+    --text-secondary: hsl(215, 25%, 75%);
+    --text-muted: hsl(215, 15%, 58%);
+
+    --blue: hsl(210, 70%, 65%);
+    --accent: hsl(180, 80%, 60%);
+
+    --accent-purple: hsl(270, 70%, 65%);
+    --blue: hsl(210, 70%, 65%);
+    --accent-cyan: hsl(190, 70%, 65%);
+    --accent-teal: hsl(175, 70%, 65%);
+    --accent-green: hsl(145, 70%, 65%);
+    --accent-yellow: hsl(45, 70%, 65%);
+    --accent-orange: hsl(30, 70%, 65%);
+    --accent-red: hsl(0, 70%, 65%);
+
+    --radius: 0.35rem;
+
+    --border: var(--elevated);
+    --input: var(--background-surface);
+
+    --success: var(--accent-green);
+    --warning: var(--accent-yellow);
+    --danger: var(--accent-red);
+    --info: var(--blue);
+
+    --astro-code-background: var(--background-surface);
+    --astro-code-foreground: var(--text-primary);
+    --astro-code-token-constant: var(--accent-cyan);
+    --astro-code-token-string: var(--accent-yellow);
+    --astro-code-token-comment: var(--text-muted);
+    --astro-code-token-keyword: var(--blue);
+    --astro-code-token-parameter: var(--accent-orange);
+    --astro-code-token-function: var(--accent-purple);
+    --astro-code-token-string-expression: var(--accent-green);
+    --astro-code-token-punctuation: var(--accent-teal);
+    --astro-code-token-link: var(--accent-red);
+  }
+
+  [data-theme="dark"] {
+    --background-base: hsl(230, 20%, 5%);
+    --background-surface: hsl(230, 20%, 10%);
+    --elevated: hsl(230, 20%, 18%);
+
+    --text-primary: hsl(210, 40%, 97%);
+    --text-secondary: hsl(215, 25%, 75%);
+    --text-muted: hsl(215, 15%, 58%);
+
+    --accent: hsl(210, 70%, 65%);
+    --accent: hsl(180, 80%, 60%);
+
+    --accent-purple: hsl(270, 70%, 65%);
+    --blue: hsl(210, 70%, 65%);
+    --accent-cyan: hsl(190, 70%, 65%);
+    --accent-teal: hsl(175, 70%, 65%);
+    --accent-green: hsl(145, 70%, 65%);
+    --accent-yellow: hsl(45, 70%, 65%);
+    --accent-orange: hsl(30, 70%, 65%);
+    --accent-red: hsl(0, 70%, 65%);
+
+    --radius: 0.35rem;
+
+    --border: var(--elevated);
+    --input: var(--background-surface);
+
+    --success: var(--accent-green);
+    --warning: var(--accent-yellow);
+    --danger: var(--accent-red);
+    --info: var(--blue);
+
+    --astro-code-background: var(--background-surface);
+    --astro-code-foreground: var(--text-primary);
+    --astro-code-token-constant: var(--accent-cyan);
+    --astro-code-token-string: var(--accent-yellow);
+    --astro-code-token-comment: var(--text-muted);
+    --astro-code-token-keyword: var(--blue);
+    --astro-code-token-parameter: var(--accent-orange);
+    --astro-code-token-function: var(--accent-purple);
+    --astro-code-token-string-expression: var(--accent-green);
+    --astro-code-token-punctuation: var(--accent-teal);
+    --astro-code-token-link: var(--accent-red);
+  }
+
+  [data-theme="ayu-dark"] {
+    --background-base: hsl(220, 16%, 14%);
+    --background-surface: hsl(220, 16%, 18%);
+    --elevated: hsl(220, 16%, 24%);
+
+    --text-primary: hsl(42, 30%, 95%);
+    --text-secondary: hsl(42, 20%, 75%);
+    --text-muted: hsl(42, 15%, 60%);
+
+    --accent: hsl(35, 100%, 60%);
+    --accent: hsl(185, 70%, 55%);
+
+    --accent-purple: hsl(265, 65%, 75%);
+    --blue: hsl(210, 90%, 70%);
+    --accent-cyan: hsl(190, 75%, 65%);
+    --accent-teal: hsl(175, 65%, 60%);
+    --accent-green: hsl(130, 45%, 55%);
+    --accent-yellow: hsl(42, 100%, 58%);
+    --accent-orange: hsl(30, 90%, 60%);
+    --accent-red: hsl(0, 70%, 55%);
+
+    --radius: 0.35rem;
+
+    --border: var(--elevated);
+    --input: var(--background-surface);
+
+    --success: var(--accent-green);
+    --warning: var(--accent-yellow);
+    --danger: var(--accent-red);
+    --info: var(--blue);
+
+    --astro-code-background: var(--background-surface);
+    --astro-code-foreground: var(--text-primary);
+    --astro-code-token-constant: var(--accent-cyan);
+    --astro-code-token-string: var(--accent-yellow);
+    --astro-code-token-comment: var(--text-muted);
+    --astro-code-token-keyword: var(--blue);
+    --astro-code-token-parameter: var(--accent-orange);
+    --astro-code-token-function: var(--accent-purple);
+    --astro-code-token-string-expression: var(--accent-green);
+    --astro-code-token-punctuation: var(--accent-teal);
+    --astro-code-token-link: var(--accent-red);
+  }
+
+  [data-theme="light"] {
+    --background-base: hsl(230, 20%, 95%);
+    --background-surface: hsl(230, 20%, 90%);
+    --elevated: hsl(230, 20%, 82%);
+
+    --text-primary: hsl(230, 20%, 5%);
+    --text-secondary: hsl(230, 20%, 10%);
+    --text-muted: hsl(230, 20%, 18%);
+
+    --accent: hsl(210, 100%, 42%);
+    --accent: hsl(180, 80%, 38%);
+
+    --accent-purple: hsl(270, 70%, 50%);
+    --blue: hsl(210, 70%, 50%);
+    --accent-cyan: hsl(190, 70%, 50%);
+    --accent-teal: hsl(175, 70%, 50%);
+    --accent-green: hsl(133, 70%, 50%);
+    --accent-yellow: hsl(42, 70%, 50%);
+    --accent-orange: hsl(30, 70%, 50%);
+    --accent-red: hsl(0, 70%, 50%);
+
+    --radius: 0.35rem;
+
+    --border: var(--elevated);
+    --input: var(--background-surface);
+
+    --success: var(--accent-green);
+    --warning: var(--accent-yellow);
+    --danger: var(--accent-red);
+    --info: var(--blue);
+
+    --astro-code-background: var(--background-surface);
+    --astro-code-foreground: var(--text-primary);
+    --astro-code-token-constant: var(--accent-cyan);
+    --astro-code-token-string: var(--accent-yellow);
+    --astro-code-token-comment: var(--text-muted);
+    --astro-code-token-keyword: var(--blue);
+    --astro-code-token-parameter: var(--accent-orange);
+    --astro-code-token-function: var(--accent-purple);
+    --astro-code-token-string-expression: var(--accent-green);
+    --astro-code-token-punctuation: var(--accent-teal);
+    --astro-code-token-link: var(--accent-red);
+  }
+
+  [data-theme="retro-light"] {
+    --background-base: hsl(45, 100%, 97%);
+    --background-surface: hsl(42, 94%, 91%);
+    --elevated: hsl(40, 90%, 86%);
+
+    --text-primary: hsl(24, 30%, 15%);
+    --text-secondary: hsl(24, 25%, 30%);
+    --text-muted: hsl(24, 20%, 45%);
+
+    --accent: hsl(9, 90%, 50%);
+    --accent: hsl(185, 80%, 40%);
+
+    --accent-purple: hsl(285, 65%, 55%);
+    --blue: hsl(200, 80%, 45%);
+    --accent-cyan: hsl(180, 70%, 42%);
+    --accent-teal: hsl(165, 60%, 38%);
+    --accent-green: hsl(145, 60%, 40%);
+    --accent-yellow: hsl(42, 100%, 50%);
+    --accent-orange: hsl(25, 85%, 50%);
+    --accent-red: hsl(0, 75%, 48%);
+
+    --radius: 0.35rem;
+
+    --border: var(--elevated);
+    --input: var(--background-surface);
+
+    --success: var(--accent-green);
+    --warning: var(--accent-yellow);
+    --danger: var(--accent-red);
+    --info: var(--blue);
+
+    --astro-code-background: var(--background-surface);
+    --astro-code-foreground: var(--text-primary);
+    --astro-code-token-constant: var(--accent-cyan);
+    --astro-code-token-string: var(--accent-yellow);
+    --astro-code-token-comment: var(--text-muted);
+    --astro-code-token-keyword: var(--blue);
+    --astro-code-token-parameter: var(--accent-orange);
+    --astro-code-token-function: var(--accent-purple);
+    --astro-code-token-string-expression: var(--accent-green);
+    --astro-code-token-punctuation: var(--accent-teal);
+    --astro-code-token-link: var(--accent-red);
+  }
+
+  [data-theme="digital-noir"] {
+    --background-base: hsl(230, 25%, 8%);
+    --background-surface: hsl(230, 25%, 12%);
+    --elevated: hsl(230, 25%, 18%);
+
+    --text-primary: hsl(210, 20%, 92%);
+    --text-secondary: hsl(210, 15%, 75%);
+    --text-muted: hsl(210, 10%, 60%);
+
+    --accent: hsl(195, 80%, 55%);
+    --accent: hsl(340, 80%, 60%);
+
+    --accent-purple: hsl(295, 100%, 68%);
+    --blue: hsl(205, 100%, 65%);
+    --accent-cyan: hsl(185, 100%, 60%);
+    --accent-teal: hsl(170, 100%, 55%);
+    --accent-green: hsl(135, 100%, 45%);
+    --accent-yellow: hsl(45, 100%, 55%);
+    --accent-orange: hsl(20, 100%, 60%);
+    --accent-red: hsl(0, 100%, 60%);
+
+    --radius: 0.35rem;
+
+    --border: var(--elevated);
+    --input: var(--background-surface);
+
+    --success: var(--accent-green);
+    --warning: var(--accent-yellow);
+    --danger: var(--accent-red);
+    --info: var(--blue);
+
+    --astro-code-background: var(--background-surface);
+    --astro-code-foreground: var(--text-primary);
+    --astro-code-token-constant: var(--accent-cyan);
+    --astro-code-token-string: var(--accent-yellow);
+    --astro-code-token-comment: var(--text-muted);
+    --astro-code-token-keyword: var(--blue);
+    --astro-code-token-parameter: var(--accent-orange);
+    --astro-code-token-function: var(--accent-purple);
+    --astro-code-token-string-expression: var(--accent-green);
+    --astro-code-token-punctuation: var(--accent-teal);
+    --astro-code-token-link: var(--accent-red);
+  }
+}
+
+@theme {
+  --color-*: initial;
+  --color-background-base: var(--background-base);
+  --color-background-surface: var(--background-surface);
+  --color-elevated: var(--elevated);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-accent: var(--accent);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-info: var(--info);
+  --color-accent-purple: var(--accent-purple);
+  --color-blue: var(--blue);
+  --color-accent-cyan: var(--accent-cyan);
+  --color-accent-teal: var(--accent-teal);
+  --color-accent-green: var(--accent-green);
+  --color-accent-yellow: var(--accent-yellow);
+  --color-accent-orange: var(--accent-orange);
+  --color-accent-red: var(--accent-red);
+
+  --radius-radius: var(--radius);
+  --radius-lg: calc(var(--radius) + 3px);
+  --radius-sm: calc(var(--radius) - 3px);
+
+  --font-display: "Nunito Variable", sans-serif;
+  --font-mono: "Source Code Pro Variable", monospace;
+  --font-montserrat: "Montserrat Variable", sans-serif;
+}
+
+@layer base {
+  * {
+    @apply scroll-smooth transition-transform box-border;
+  }
+
+  body {
+    @apply bg-background-base text-text-primary leading-relaxed antialiased;
+  }
+
+  h1 {
+    @apply scroll-m-20 text-4xl font-bold lg:text-5xl tracking-tight pt-2 leading-normal;
+  }
+
+  h2 {
+    @apply mt-6 scroll-m-20 text-3xl font-semibold tracking-wide pb-2 first:mt-0;
+  }
+
+  h3 {
+    @apply mt-5 scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0;
+  }
+
+  h4 {
+    @apply mt-4 scroll-m-20 text-xl font-medium tracking-tight first:mt-0;
+  }
+
+  h5,
+  h6 {
+    @apply mt-3 text-lg font-semibold text-text-muted uppercase tracking-wide;
+  }
+
+  p {
+    @apply [&:not(:first-child)]:mt-3 leading-relaxed text-text-secondary;
+  }
+
+  a {
+    @apply no-underline text-blue;
+  }
+
+  ul {
+    @apply list-disc list-outside space-y-1;
+  }
+
+  ol {
+    @apply list-decimal list-outside space-y-1;
+  }
+
+  blockquote {
+    @apply border-l-4 border-accent pl-5 italic text-text-secondary bg-background-surface py-3 rounded-radius;
+  }
+
+  hr {
+    @apply border-border my-8 opacity-50;
+  }
+
+  pre {
+    @apply bg-background-surface text-text-primary p-4 rounded-radius overflow-x-auto;
+  }
+
+  code {
+    @apply bg-background-surface px-1.5 py-0.5 rounded text-blue font-mono text-sm;
+  }
+
+  pre code {
+    @apply block p-0 bg-transparent border-0;
+  }
+}
+
+/* ===== selection ===== */
+
+::selection {
+  @apply bg-accent text-background-base;
+}
+
+/* ===== scrollbar ===== */
+
+/* width */
+::-webkit-scrollbar {
+  @apply w-[6px] h-[6px];
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  @apply bg-transparent rounded;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-elevated rounded;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-accent;
+}
+
+/* ===== codeblock ===== */
+
+.astro-code {
+  @apply p-4 mt-2 hover:bg-accent/80 hover:text-text-primary rounded-lg;
+}
+
+code {
+  @apply bg-transparent;
+}
+
+/* ===== prose ===== */
+
+.prose {
+  @apply text-text-primary leading-loose;
+}
+
+.prose span {
+  @apply leading-0;
+}
+
+.prose a {
+  @apply text-blue hover:text-blue/80 underline underline-offset-4 decoration-dashed transition-colors decoration-1;
+}
+
+.prose h1 {
+  @apply text-4xl font-extrabold text-text-secondary pb-3 mb-5;
+}
+
+.prose h2 {
+  @apply text-2xl font-bold text-text-secondary mt-8 mb-3;
+}
+
+.prose h3 {
+  @apply text-xl font-semibold text-text-secondary mt-6 mb-2;
+}
+
+.prose h4 {
+  @apply text-lg font-medium text-text-muted mt-5 mb-2;
+}
+
+.prose h5,
+.prose h6 {
+  @apply text-base font-semibold text-text-muted uppercase tracking-wide mt-4 mb-1;
+}
+
+.prose p {
+  @apply text-text-secondary my-4 first:mt-0;
+}
+
+/* .prose .alert p {
+  @apply text-background-base my-0 first:mt-0;
+} */
+
+.prose ul {
+  @apply list-disc list-outside my-4;
+}
+
+.prose ol {
+  @apply list-decimal list-outside my-4;
+}
+
+.prose li {
+  @apply text-text-secondary leading-relaxed;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-blue pl-6 italic text-text-secondary bg-background-surface py-3 rounded-radius;
+}
+
+.prose pre {
+  @apply bg-background-surface text-text-primary p-4 mb-4 rounded-lg overflow-x-auto;
+}
+
+.prose code {
+  @apply bg-background-surface px-1.5 py-0.5 rounded text-blue font-mono text-sm;
+}
+
+.prose pre code {
+  @apply block p-0 bg-transparent border-0;
+}
+
+.prose table {
+  @apply w-full border-collapse rounded-radius overflow-x-scroll mt-6;
+}
+
+.prose th,
+.prose td {
+  @apply px-4 py-2 text-text-secondary;
+}
+
+.prose th {
+  @apply bg-background-surface text-text-secondary font-bold uppercase tracking-wide;
+}
+
+.prose tr:nth-child(even) {
+  @apply bg-background-surface;
+}
+
+.prose img {
+  @apply rounded-lg mx-auto;
+}
+
+.prose hr {
+  @apply border-border my-8 opacity-50;
+}
+
+.prose iframe {
+  @apply w-full aspect-[2/1] h-auto;
+}
+
+/* ===== others ===== */
+
+@layer components {
+  code {
+    counter-reset: step;
+  }
+
+  code > .line::before {
+    content: counter(step);
+    counter-increment: step;
+    width: 1rem;
+    margin-right: 1.5rem;
+    margin-top: 0;
+    padding-top: 0;
+    display: inline-block;
+    text-align: right;
+    color: rgba(115, 138, 148, 0.4);
+  }
+}
+
+@layer utilities {
+  .special-text {
+    @apply bg-gradient-to-tl from-accent to-accent bg-clip-text text-transparent;
+  }
+}
