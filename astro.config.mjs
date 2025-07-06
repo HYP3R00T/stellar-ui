@@ -7,22 +7,24 @@ import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
-  vite: {
-    plugins: [tailwindcss()],
-  },
-  markdown: {
-    shikiConfig: {
-      theme: "css-variables",
-      defaultColor: false,
+    vite: {
+        plugins: [tailwindcss()],
     },
-  },
-  integrations: [
-    icon({
-      iconDir: "src/assets/icons",
-    }),
-    mdx(),
-  ],
-  redirects: {
-    "/test": "/test/checkbox",
-  },
+    markdown: {
+        shikiConfig: {
+            themes: {
+                light: 'catppuccin-latte',
+                dark: 'catppuccin-mocha',
+            },
+        },
+    },
+    integrations: [
+        icon({
+            iconDir: "src/assets/icons",
+        }),
+        mdx(),
+    ],
+    redirects: {
+        "/test": "/test/checkbox",
+    },
 });

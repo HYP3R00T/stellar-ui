@@ -1,311 +1,286 @@
 @import "tailwindcss";
 
 @layer base {
-  :root {
-    /* Neutrals (backgrounds & text) */
-    --background: hsl(240deg, 21%, 15%);
-    --surface: hsl(237deg, 16%, 23%);
-    --elevated: hsl(233deg, 12%, 39%);
-    --border: hsl(231deg, 11%, 47%);
+    :root {
+        /* Neutrals (backgrounds & text) */
+        --background: hsl(240deg, 23%, 9%);
+        --surface: hsl(240deg, 21%, 12%);
+        --elevated: hsl(233deg, 12%, 39%);
+        --border: hsl(231deg, 11%, 47%);
 
-    --text-primary: hsl(226deg, 64%, 88%);
-    --text-secondary: hsl(227deg, 35%, 80%);
-    --text-muted: hsl(228deg, 17%, 64%);
-    --text-inverted: hsl(240deg, 21%, 15%);
+        --text-primary: hsl(226deg, 64%, 88%);
+        --text-secondary: hsl(227deg, 35%, 80%);
+        --text-muted: hsl(228deg, 17%, 64%);
+        --text-inverted: hsl(240deg, 21%, 15%);
 
-    /* Accents & Statuses */
-    --blue: hsl(217deg, 92%, 76%);
-    --red: hsl(343deg, 81%, 75%);
-    --orange: hsl(23deg, 92%, 75%);
-    --yellow: hsl(41deg, 86%, 83%);
-    --green: hsl(115deg, 54%, 76%);
-    --teal: hsl(170deg, 57%, 73%);
-    --purple: hsl(267deg, 84%, 81%);
-    --pink: hsl(316deg, 72%, 86%);
+        /* Accents & Statuses */
+        --blue: hsl(217deg, 92%, 76%);
+        --red: hsl(343deg, 81%, 75%);
+        --orange: hsl(23deg, 92%, 75%);
+        --yellow: hsl(41deg, 86%, 83%);
+        --green: hsl(115deg, 54%, 76%);
+        --teal: hsl(170deg, 57%, 73%);
+        --purple: hsl(267deg, 84%, 81%);
+        --pink: hsl(316deg, 72%, 86%);
 
-    /* Accent/semantic roles (alias your palette as needed) */
-    --accent: var(--blue);
-    --success: var(--green);
-    --warning: var(--yellow);
-    --error: var(--red);
+        /* Accent/semantic roles (alias your palette as needed) */
+        --accent: var(--blue);
+        --success: var(--green);
+        --warning: var(--yellow);
+        --error: var(--red);
 
-    --radius: 0.35rem;
+        --radius: 0.35rem;
+    }
 
-    --astro-code-background: var(--surface);
-    --astro-code-foreground: var(--text-primary);
-    --astro-code-token-constant: var(--pink);
-    --astro-code-token-string: var(--yellow);
-    --astro-code-token-comment: var(--text-muted);
-    --astro-code-token-keyword: var(--blue);
-    --astro-code-token-parameter: var(--orange);
-    --astro-code-token-function: var(--purple);
-    --astro-code-token-string-expression: var(--green);
-    --astro-code-token-punctuation: var(--teal);
-    --astro-code-token-link: var(--red);
-  }
+    [data-theme="dark"] {
+        /* Neutrals (backgrounds & text) */
+        --background: hsl(240deg, 23%, 9%);
+        --surface: hsl(240deg, 21%, 12%);
+        --elevated: hsl(233deg, 12%, 39%);
+        --border: hsl(231deg, 11%, 47%);
 
-  [data-theme="dark"] {
-    /* Neutrals (backgrounds & text) */
-    --background: hsl(240deg, 21%, 15%);
-    --surface: hsl(237deg, 16%, 23%);
-    --elevated: hsl(233deg, 12%, 39%);
-    --border: hsl(231deg, 11%, 47%);
+        --text-primary: hsl(226deg, 64%, 88%);
+        --text-secondary: hsl(227deg, 35%, 80%);
+        --text-muted: hsl(228deg, 17%, 64%);
+        --text-inverted: hsl(240deg, 21%, 15%);
 
-    --text-primary: hsl(226deg, 64%, 88%);
-    --text-secondary: hsl(227deg, 35%, 80%);
-    --text-muted: hsl(228deg, 17%, 64%);
-    --text-inverted: hsl(240deg, 21%, 15%);
+        /* Accents & Statuses */
+        --blue: hsl(217deg, 92%, 76%);
+        --red: hsl(343deg, 81%, 75%);
+        --orange: hsl(23deg, 92%, 75%);
+        --yellow: hsl(41deg, 86%, 83%);
+        --green: hsl(115deg, 54%, 76%);
+        --teal: hsl(170deg, 57%, 73%);
+        --purple: hsl(267deg, 84%, 81%);
+        --pink: hsl(316deg, 72%, 86%);
 
-    /* Accents & Statuses */
-    --blue: hsl(217deg, 92%, 76%);
-    --red: hsl(343deg, 81%, 75%);
-    --orange: hsl(23deg, 92%, 75%);
-    --yellow: hsl(41deg, 86%, 83%);
-    --green: hsl(115deg, 54%, 76%);
-    --teal: hsl(170deg, 57%, 73%);
-    --purple: hsl(267deg, 84%, 81%);
-    --pink: hsl(316deg, 72%, 86%);
+        /* Accent/semantic roles (alias your palette as needed) */
+        --accent: var(--blue);
+        --success: var(--green);
+        --warning: var(--yellow);
+        --error: var(--red);
 
-    /* Accent/semantic roles (alias your palette as needed) */
-    --accent: var(--blue);
-    --success: var(--green);
-    --warning: var(--yellow);
-    --error: var(--red);
+        --radius: 0.35rem;
+    }
 
-    --radius: 0.35rem;
+    [data-theme="light"] {
+        /* Neutrals (backgrounds & text) */
+        --background: hsl(220deg, 21%, 89%);
+        --surface: hsl(220deg, 22%, 92%);
+        --elevated: hsl(225deg, 14%, 77%);
+        --border: hsl(228deg, 11%, 65%);
 
-    --astro-code-background: var(--surface);
-    --astro-code-foreground: var(--text-primary);
-    --astro-code-token-constant: var(--purple);
-    --astro-code-token-string: var(--text-primary);
-    --astro-code-token-comment: var(--text-muted);
-    --astro-code-token-keyword: var(--purple);
-    --astro-code-token-parameter: var(--orange);
-    --astro-code-token-function: var(--yellow);
-    --astro-code-token-string-expression: var(--blue);
-    --astro-code-token-punctuation: var(--teal);
-    --astro-code-token-link: var(--red);
-  }
+        --text-primary: hsl(234deg, 16%, 35%);
+        --text-secondary: hsl(233deg, 13%, 41%);
+        --text-muted: hsl(233deg, 10%, 47%);
+        --text-inverted: hsl(220deg, 23%, 95%);
 
-  [data-theme="light"] {
-    /* Neutrals (backgrounds & text) */
-    --background: hsl(220deg, 23%, 95%);
-    --surface: hsl(220deg, 22%, 92%);
-    --elevated: hsl(225deg, 14%, 77%);
-    --border: hsl(228deg, 11%, 65%);
+        /* Accents & Statuses (hues matched to catppuccin latte) */
+        --blue: hsl(220deg, 91%, 54%);
+        --red: hsl(347deg, 87%, 44%);
+        --orange: hsl(22deg, 99%, 52%);
+        --yellow: hsl(35deg, 77%, 49%);
+        --green: hsl(109deg, 58%, 40%);
+        --teal: hsl(183deg, 74%, 35%);
+        --purple: hsl(266deg, 85%, 58%);
+        --pink: hsl(316deg, 73%, 69%);
 
-    --text-primary: hsl(234deg, 16%, 35%);
-    --text-secondary: hsl(233deg, 13%, 41%);
-    --text-muted: hsl(233deg, 10%, 47%);
-    --text-inverted: hsl(220deg, 23%, 95%);
+        /* Accent/semantic roles (alias your palette as needed) */
+        --accent: var(--blue);
+        --success: var(--green);
+        --warning: var(--yellow);
+        --error: var(--red);
 
-    /* Accents & Statuses (hues matched to catppuccin latte) */
-    --blue: hsl(220deg, 91%, 54%);
-    --red: hsl(347deg, 87%, 44%);
-    --orange: hsl(22deg, 99%, 52%);
-    --yellow: hsl(35deg, 77%, 49%);
-    --green: hsl(109deg, 58%, 40%);
-    --teal: hsl(183deg, 74%, 35%);
-    --purple: hsl(266deg, 85%, 58%);
-    --pink: hsl(316deg, 73%, 69%);
-
-    /* Accent/semantic roles (alias your palette as needed) */
-    --accent: var(--blue);
-    --success: var(--green);
-    --warning: var(--yellow);
-    --error: var(--red);
-
-    --radius: 0.35rem;
-
-    --astro-code-background: var(--surface);
-    --astro-code-foreground: var(--text-primary);
-    --astro-code-token-constant: var(--pink);
-    --astro-code-token-string: var(--yellow);
-    --astro-code-token-comment: var(--text-muted);
-    --astro-code-token-keyword: var(--blue);
-    --astro-code-token-parameter: var(--orange);
-    --astro-code-token-function: var(--purple);
-    --astro-code-token-string-expression: var(--green);
-    --astro-code-token-punctuation: var(--teal);
-    --astro-code-token-link: var(--red);
-  }
+        --radius: 0.35rem;
+    }
 }
 
 @theme {
-  --color-*: initial;
+    --color-*: initial;
 
-  --color-background: var(--background);
-  --color-surface: var(--surface);
-  --color-elevated: var(--elevated);
-  --color-border: var(--border);
-  --color-text-primary: var(--text-primary);
-  --color-text-secondary: var(--text-secondary);
-  --color-text-muted: var(--text-muted);
-  --color-text-inverted: var(--text-inverted);
-  --color-blue: var(--blue);
-  --color-red: var(--red);
-  --color-orange: var(--orange);
-  --color-yellow: var(--yellow);
-  --color-green: var(--green);
-  --color-teal: var(--teal);
-  --color-purple: var(--purple);
-  --color-pink: var(--pink);
-  --color-accent: var(--accent);
-  --color-success: var(--success);
-  --color-warning: var(--warning);
-  --color-error: var(--error);
+    --color-background: var(--background);
+    --color-surface: var(--surface);
+    --color-elevated: var(--elevated);
+    --color-border: var(--border);
+    --color-text-primary: var(--text-primary);
+    --color-text-secondary: var(--text-secondary);
+    --color-text-muted: var(--text-muted);
+    --color-text-inverted: var(--text-inverted);
+    --color-blue: var(--blue);
+    --color-red: var(--red);
+    --color-orange: var(--orange);
+    --color-yellow: var(--yellow);
+    --color-green: var(--green);
+    --color-teal: var(--teal);
+    --color-purple: var(--purple);
+    --color-pink: var(--pink);
+    --color-accent: var(--accent);
+    --color-success: var(--success);
+    --color-warning: var(--warning);
+    --color-error: var(--error);
 
-  --radius-radius: var(--radius);
-  --radius-lg: calc(var(--radius) + 3px);
-  --radius-sm: calc(var(--radius) - 3px);
+    --radius-radius: var(--radius);
+    --radius-lg: calc(var(--radius) + 3px);
+    --radius-sm: calc(var(--radius) - 3px);
 
-  --font-display: "Nunito Variable", sans-serif;
-  --font-mono: "Source Code Pro Variable", monospace;
-  --font-montserrat: "Montserrat Variable", sans-serif;
+    --font-display: "Nunito Variable", sans-serif;
+    --font-mono: "Source Code Pro Variable", monospace;
+    --font-montserrat: "Montserrat Variable", sans-serif;
 }
 
 @layer base {
-  * {
-    @apply scroll-smooth transition-transform box-border;
-  }
 
-  body {
-    @apply bg-background text-text-primary leading-relaxed antialiased;
-  }
+    /* Dark theme: use dark CSS vars */
+    [data-theme="dark"] .astro-code,
+    [data-theme="dark"] .astro-code span {
+        background-color: var(--shiki-dark-bg) !important;
+        color: var(--shiki-dark) !important;
+        font-style: var(--shiki-dark-font-style) !important;
+        font-weight: var(--shiki-dark-font-weight) !important;
+        text-decoration: var(--shiki-dark-text-decoration) !important;
+    }
 
-  h1 {
-    @apply scroll-m-20 text-4xl font-bold lg:text-5xl tracking-tight pt-2 leading-normal;
-  }
+    * {
+        @apply scroll-smooth transition-transform box-border;
+    }
 
-  h2 {
-    @apply mt-6 scroll-m-20 text-3xl font-semibold tracking-wide pb-2 first:mt-0;
-  }
+    body {
+        @apply bg-background text-text-primary leading-relaxed antialiased;
+    }
 
-  h3 {
-    @apply mt-5 scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0;
-  }
+    h1 {
+        @apply scroll-m-20 text-4xl font-bold lg:text-5xl tracking-tight pt-2 leading-normal;
+    }
 
-  h4 {
-    @apply mt-4 scroll-m-20 text-xl font-medium tracking-tight first:mt-0;
-  }
+    h2 {
+        @apply mt-6 scroll-m-20 text-3xl font-semibold tracking-wide pb-2 first:mt-0;
+    }
 
-  h5,
-  h6 {
-    @apply mt-3 text-lg font-semibold text-text-muted uppercase tracking-wide;
-  }
+    h3 {
+        @apply mt-5 scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0;
+    }
 
-  p {
-    @apply [&:not(:first-child)]:mt-3 leading-relaxed text-text-secondary;
-  }
+    h4 {
+        @apply mt-4 scroll-m-20 text-xl font-medium tracking-tight first:mt-0;
+    }
 
-  a {
-    @apply no-underline text-blue;
-  }
+    h5,
+    h6 {
+        @apply mt-3 text-lg font-semibold text-text-muted uppercase tracking-wide;
+    }
 
-  ul {
-    @apply list-disc list-outside space-y-1;
-  }
+    p {
+        @apply [&:not(:first-child)]:mt-3 leading-relaxed text-text-secondary;
+    }
 
-  ol {
-    @apply list-decimal list-outside space-y-1;
-  }
+    a {
+        @apply no-underline text-blue;
+    }
 
-  blockquote {
-    @apply border-l-4 border-accent pl-5 italic text-text-secondary bg-surface py-3 rounded-radius;
-  }
+    ul {
+        @apply list-disc list-outside space-y-1;
+    }
 
-  hr {
-    @apply border-border my-8 opacity-50;
-  }
+    ol {
+        @apply list-decimal list-outside space-y-1;
+    }
 
-  pre {
-    @apply bg-surface text-text-primary p-4 rounded-radius overflow-x-auto;
-  }
+    blockquote {
+        @apply border-l-4 border-accent pl-5 italic text-text-secondary bg-surface py-3 rounded-radius;
+    }
 
-  code {
-    @apply bg-surface px-1.5 py-0.5 rounded text-blue font-mono text-sm;
-  }
+    hr {
+        @apply border-border my-8 opacity-50;
+    }
 
-  pre code {
-    @apply block p-0 bg-transparent border-0;
-  }
+    pre {
+        @apply bg-surface text-text-primary p-4 rounded-radius overflow-x-auto;
+    }
+
+    code {
+        @apply bg-surface px-1.5 py-0.5 rounded text-blue font-mono text-sm;
+    }
+
+    pre code {
+        @apply block p-0 bg-transparent border-0;
+    }
 }
 
 /* ===== selection ===== */
 
 ::selection {
-  @apply bg-accent text-background;
+    @apply bg-accent text-background;
 }
 
 /* ===== scrollbar ===== */
 
 /* width */
 ::-webkit-scrollbar {
-  @apply w-[6px] h-[6px];
+    @apply w-[6px] h-[6px];
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  @apply bg-transparent rounded;
+    @apply bg-transparent rounded;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  @apply bg-elevated rounded;
+    @apply bg-elevated rounded;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-accent;
+    @apply bg-accent;
 }
 
 /* ===== codeblock ===== */
 
 .astro-code {
-  @apply p-4 mt-2 hover:bg-accent/80 hover:text-text-primary rounded-lg;
+    @apply p-4 mt-2 hover:bg-accent/80 hover:text-text-primary rounded-lg;
 }
 
 code {
-  @apply bg-transparent;
+    @apply bg-transparent;
 }
 
 /* ===== prose ===== */
 
 .prose {
-  @apply text-text-primary leading-loose;
+    @apply text-text-primary leading-loose;
 }
 
 .prose span {
-  @apply leading-0;
+    @apply leading-0;
 }
 
 .prose a {
-  @apply text-blue hover:text-blue/80 underline underline-offset-4 decoration-dashed transition-colors decoration-1;
+    @apply text-blue hover:text-blue/80 underline underline-offset-4 decoration-dashed transition-colors decoration-1;
 }
 
 .prose h1 {
-  @apply text-4xl font-extrabold text-text-secondary pb-3 mb-5;
+    @apply text-4xl font-extrabold text-text-secondary pb-3 mb-5;
 }
 
 .prose h2 {
-  @apply text-2xl font-bold text-text-secondary mt-8 mb-3;
+    @apply text-2xl font-bold text-text-secondary mt-8 mb-3;
 }
 
 .prose h3 {
-  @apply text-xl font-semibold text-text-secondary mt-6 mb-2;
+    @apply text-xl font-semibold text-text-secondary mt-6 mb-2;
 }
 
 .prose h4 {
-  @apply text-lg font-medium text-text-muted mt-5 mb-2;
+    @apply text-lg font-medium text-text-muted mt-5 mb-2;
 }
 
 .prose h5,
 .prose h6 {
-  @apply text-base font-semibold text-text-muted uppercase tracking-wide mt-4 mb-1;
+    @apply text-base font-semibold text-text-muted uppercase tracking-wide mt-4 mb-1;
 }
 
 .prose p {
-  @apply text-text-secondary my-4 first:mt-0;
+    @apply text-text-secondary my-4 first:mt-0;
 }
 
 /* .prose .alert p {
@@ -313,84 +288,84 @@ code {
 } */
 
 .prose ul {
-  @apply list-disc list-outside my-4;
+    @apply list-disc list-outside my-4;
 }
 
 .prose ol {
-  @apply list-decimal list-outside my-4;
+    @apply list-decimal list-outside my-4;
 }
 
 .prose li {
-  @apply text-text-secondary leading-relaxed;
+    @apply text-text-secondary leading-relaxed;
 }
 
 .prose blockquote {
-  @apply border-l-4 border-blue pl-6 italic text-text-secondary bg-surface py-3 rounded-radius;
+    @apply border-l-4 border-blue pl-6 italic text-text-secondary bg-surface py-3 rounded-radius;
 }
 
 .prose pre {
-  @apply bg-surface text-text-primary p-4 mb-4 rounded-lg overflow-x-auto;
+    @apply bg-surface text-text-primary p-4 mb-4 rounded-lg overflow-x-auto;
 }
 
 .prose code {
-  @apply bg-surface px-1.5 py-0.5 rounded text-blue font-mono text-sm;
+    @apply bg-surface px-1.5 py-0.5 rounded text-blue font-mono text-sm;
 }
 
 .prose pre code {
-  @apply block p-0 bg-transparent border-0;
+    @apply block p-0 bg-transparent border-0;
 }
 
 .prose table {
-  @apply w-full border-collapse rounded-radius overflow-x-scroll mt-6;
+    @apply w-full border-collapse rounded-radius overflow-x-scroll mt-6;
 }
 
 .prose th,
 .prose td {
-  @apply px-4 py-2 text-text-secondary;
+    @apply px-4 py-2 text-text-secondary;
 }
 
 .prose th {
-  @apply bg-surface text-text-secondary font-bold uppercase tracking-wide;
+    @apply bg-surface text-text-secondary font-bold uppercase tracking-wide;
 }
 
 .prose tr:nth-child(even) {
-  @apply bg-surface;
+    @apply bg-surface;
 }
 
 .prose img {
-  @apply rounded-lg mx-auto;
+    @apply rounded-lg mx-auto;
 }
 
 .prose hr {
-  @apply border-border my-8 opacity-50;
+    @apply border-border my-8 opacity-50;
 }
 
 .prose iframe {
-  @apply w-full aspect-[2/1] h-auto;
+    @apply w-full aspect-[2/1] h-auto;
 }
 
 /* ===== others ===== */
 
 @layer components {
-  code {
-    counter-reset: step;
-  }
+    code {
+        counter-reset: step;
+    }
 
-  code > .line::before {
-    content: counter(step);
-    counter-increment: step;
-    width: 1rem;
-    margin-right: 1.5rem;
-    margin-top: 0;
-    padding-top: 0;
-    display: inline-block;
-    text-align: right;
-    color: rgba(115, 138, 148, 0.4);
-  }
+    code>.line::before {
+        content: counter(step);
+        counter-increment: step;
+        width: 1rem;
+        margin-right: 1.5rem;
+        margin-top: 0;
+        padding-top: 0;
+        display: inline-block;
+        text-align: right;
+        color: var(--text-muted);
+    }
 }
 
 @layer utilities {
-  .special-text {
-    @apply bg-gradient-to-tl from-accent to-accent bg-clip-text text-transparent;
-  }
+    .special-text {
+        @apply bg-gradient-to-tl from-accent to-accent bg-clip-text text-transparent;
+    }
 }
